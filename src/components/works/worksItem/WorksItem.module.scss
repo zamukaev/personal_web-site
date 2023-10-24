@@ -1,0 +1,61 @@
+.worksItem{
+    flex: 0 0 20%;
+    cursor: pointer;
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background: #989898;
+    border-radius: 10px;
+    margin: 15px;
+    transition: all 1s ease;
+    opacity: 0;
+    transform: scale(0.2);
+    .image{
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+    }
+    .overlay{
+        position: absolute;
+        border-radius: 10px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        z-index: 10;
+        background: #ffffffd2;
+        opacity: 0;
+        visibility: hidden;
+        transition: all ease-in 1s;
+        .paragraph{
+        text-align: center;
+            color: black;
+        }
+    }
+      &:hover{
+        .overlay{
+            transition: all ease-in 1s;
+            opacity: 1;
+            visibility: visible; 
+            box-shadow:0px 0px 9px 2px #2fb1cf;
+        }
+             
+        }
+    .headline{
+        align-self: center;
+        color: rgb(128,0,0);
+    }
+}
+.mounted{
+    transform: scale(1);
+    opacity: 1;
+}
+.overlayBtn{
+}
+.links{
+    display: flex;
+    justify-content: space-evenly;
+}

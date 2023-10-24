@@ -1,0 +1,21 @@
+.navbar{
+ @media (max-width:733px) {
+  display: none;
+ }
+}
+.menu{
+  display: flex;
+  justify-content: space-between;
+}
+.menuItem{
+  cursor: pointer;
+  margin-right: 39px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in;
+   &:hover{
+    color: #f90202;
+  }
+  @media (max-width:833px) {
+     margin-right: 12px;
+  }
+}

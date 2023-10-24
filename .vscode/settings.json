@@ -1,0 +1,9 @@
+{
+    "cSpell.words": [
+        "languagedetector"
+    ],
+    "i18n-ally.localesPaths": [
+        "public/locales",
+        "src/config/i18n"
+    ]
+}
