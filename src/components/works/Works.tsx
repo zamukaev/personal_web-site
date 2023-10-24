@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import Button, { Size, ThemeButton } from "../button/Button";
 import classNames from "classnames";
-import { Headline, HeadlineTheme } from "../headline/Headline";
+import { Headline, HeadlineSize } from "../headline/Headline";
 import { WorksItem } from "./worksItem/WorksItem";
 
 import WorkImage from "../../assets/works/blog.png";
@@ -81,7 +81,7 @@ const Works: FC<WorksProps> = ({ scroll }) => {
 
     return (
         <section className={styles.works}>
-            <Headline headline="h2" theme={HeadlineTheme.M}
+            <Headline headline="h2" size={HeadlineSize.M}
                 className={
                     classNames(styles.headline, { [styles.mounted]: scroll >= 1000 })
                 }>My Work</Headline>

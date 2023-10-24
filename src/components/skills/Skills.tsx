@@ -12,7 +12,7 @@ import Js from "../../assets/icons/js.svg";
 import Mdb from "../../assets/icons/mongodb.svg";
 import Styled from "../../assets/icons/styled.svg";
 import Html from "../../assets/icons/html-5.svg";
-import { Headline, HeadlineTheme } from "../headline/Headline";
+import { Headline, HeadlineSize } from "../headline/Headline";
 import { SkillsItem } from "./skillsItem/SkillsItem";
 
 interface SkillProps {
@@ -63,7 +63,7 @@ const Skill: FC<SkillProps> = ({ firstSkillsRow, secondSkillsRow, therdSkillsRow
     console.log(firstSkillsRow)
     return (
         <section className={styles.skill}>
-            <Headline headline="h2" theme={HeadlineTheme.M} className={styles.headline}>MY Skills</Headline>
+            <Headline headline="h2" size={HeadlineSize.M} className={styles.headline}>MY Skills</Headline>
             <ul className={styles.skillsList}>
                 {skills.map((skill) => (
                     <SkillsItem

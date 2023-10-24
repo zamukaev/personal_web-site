@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import styles from './WorksItem.module.scss';
-import { Headline, HeadlineTheme } from '@/components/headline/Headline';
+import { Headline, HeadlineSize } from '@/components/headline/Headline';
 
 import { AppLink, AppLinkTheme, AppLinkSize } from '@/components/appLink/AppLink';
 import Works from '../Works';
@@ -41,7 +41,7 @@ export const WorksItem: FC<WorksItemProps> = (props) => {
                 <Headline
                     className={styles.headline}
                     headline='h3'
-                    theme={HeadlineTheme.s}
+                    size={HeadlineSize.s}
                 >
                     {title}
                 </Headline>
