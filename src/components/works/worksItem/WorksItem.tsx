@@ -23,7 +23,7 @@ export const WorksItem: FC<WorksItemProps> = (props) => {
         gitHubLink,
         scroll
     } = props;
-    const [isMounted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(true);
 
     useEffect(() => {
         if (scroll >= 1100) {
@@ -32,6 +32,7 @@ export const WorksItem: FC<WorksItemProps> = (props) => {
         if (scroll < 1100) {
             setIsMounted(false)
         }
+
     }, [scroll])
 
     return (

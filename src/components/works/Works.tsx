@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import Button, { Size, ThemeButton } from "../button/Button";
 import classNames from "classnames";
 import { Headline, HeadlineSize } from "../headline/Headline";
@@ -42,7 +42,7 @@ export const worksObj: Array<Works> = [
         category: 'next.js'
     },
     {
-        id: '1h2u32',
+        id: '1h245632',
         title: 'Blog',
         text: 'Next.js based wep-app(Blog platform)',
         gitHubLink: 'https://github.com/zamukaev/capstone-project',
@@ -51,7 +51,7 @@ export const worksObj: Array<Works> = [
         category: 'react.js'
     },
     {
-        id: '1e6b31',
+        id: '1e6b981',
         title: 'Blog',
         text: 'Next.js based wep-app(Blog platform)',
         gitHubLink: 'https://github.com/zamukaev/capstone-project',
@@ -60,7 +60,7 @@ export const worksObj: Array<Works> = [
         category: 'next.js'
     },
     {
-        id: '1e6b31',
+        id: '0e6b31',
         title: 'Blog',
         text: 'Next.js based wep-app(Blog platform)',
         gitHubLink: 'https://github.com/zamukaev/capstone-project',
@@ -72,50 +72,63 @@ export const worksObj: Array<Works> = [
 const Works: FC<WorksProps> = ({ scroll }) => {
     const [tabIndex, setTabIndex] = useState(0);
     const [category, setCategory] = useState('');
-
+    let worksListToDisplay = worksObj;
 
     const tabSelectedHandler = (id: number, category: string) => {
         setTabIndex(id);
         setCategory(category);
     }
 
+    if (category) {
+        worksListToDisplay = worksObj.filter((work: Works) => work.category.includes(category))
+        console.log(worksListToDisplay)
+        console.log('category---: ', category)
+    }
+
+    const renderWorksList = useCallback(() => {
+        return worksListToDisplay.map((work: Works) => (
+            <WorksItem
+                key={work.id}
+                title={work.title}
+                text={work.text}
+                image={work.image}
+                pageLink={work.pageLink}
+                gitHubLink={work.gitHubLink}
+                id={work.id}
+                scroll={scroll}
+            />
+        ))
+    }, [scroll, worksListToDisplay])
+
+
     return (
         <section className={styles.works}>
-            <Headline headline="h2" size={HeadlineSize.M}
-                className={
-                    classNames(styles.headline, { [styles.mounted]: scroll >= 1000 })
-                }>My Work</Headline>
+            <Headline
+                headline="h2"
+                size={HeadlineSize.M}
+                className={classNames(styles.headline, { [styles.mounted]: scroll >= 1000 })}
+            >
+                My Work
+            </Headline>
             <ul className={classNames(styles.tabs, { [styles.mounted]: scroll > 1000 })}>
                 {tabs.map((tab: Tabs, index: number) =>
                     <li
                         key={tab.id}
-                        className={
-                            classNames(
-                                styles.tab,
-                                { [styles.active]: tabIndex == index },
-                            )
-                        }
+                        className={classNames(styles.tab, { [styles.active]: tabIndex == index })}
                     >
-                        <Button size={Size.M} onClick={() => tabSelectedHandler(index, tab.category)} className={styles.workBtn} theme={ThemeButton.OUTLINE_RED}>
+                        <Button
+                            size={Size.M}
+                            onClick={() => tabSelectedHandler(index, tab.category)}
+                            className={styles.workBtn}
+                            theme={ThemeButton.OUTLINE_RED}
+                        >
                             {tab.text}
                         </Button>
                     </li>
                 )}
             </ul>
             <div className={styles.worksList}>
-                {worksObj.filter((work: Works) => work.category.includes(category)).map((work: Works) => (
-                    <WorksItem
-                        key={work.id}
-                        title={work.title}
-                        text={work.text}
-                        image={work.image}
-                        pageLink={work.pageLink}
-                        gitHubLink={work.gitHubLink}
-                        id={work.id}
-                        scroll={scroll}
-                    />
-                )
-                )}
+                {renderWorksList()}
             </div>
         </section >
     );

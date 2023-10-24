@@ -18,13 +18,14 @@ interface HeadlineProps {
 
 export const Headline: FC<HeadlineProps> = (props) => {
     const {
+        className,
         headline = 'h1',
         size = HeadlineSize.M,
         children,
     } = props;
     const Title = headline;
     return (
-        <Title className={classNames(styles.headline, styles[size])}>
+        <Title className={classNames(styles.headline, styles[size], className)}>
             {children}
         </Title>
     );
