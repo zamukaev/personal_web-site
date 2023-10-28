@@ -83,7 +83,7 @@ export const db: Record<string, Array<any>> = {
         },
         {
             text: "Git / GitHub",
-            icon: Git,
+            icon: Git
         },
     ],
     tabs: [

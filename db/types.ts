@@ -11,10 +11,11 @@ export interface Work {
 }
 
 export interface Skill {
-
+    text: string,
+    icon: SVGAElement,
 }
 
 export interface DB {
     works: Work[];
-    skills:
+    skills: Skill[]
 }
