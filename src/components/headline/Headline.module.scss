@@ -1,17 +1,34 @@
+
 .headline{
     color: #FFF;
     font-style: normal;
     line-height: normal; 
 }
 .s{
-
+    font-size: 25px;
+    line-height: 43px;
+    font-weight: 700;
 }
 .m{
-    font-size:36px;
-    line-height: 44px;
-    font-weight: bold;
+    font-size: 45px;
+    line-height: 53px;
+    font-weight: 700;
+    @media (max-width:1024px) {
+        font-size: 35px;
+        line-height: 43px;
+    }
+    @media (max-width:736px) {
+        font-size: 30px;
+        line-height: 33px;
+    }
 }
 .l{
     font-size: 65px;
     font-weight: 700;
+     @media (max-width:1024px) {
+        font-size: 45px;
+     }
+     @media (max-width:736px) {
+        font-size: 35px;
+     }
 }

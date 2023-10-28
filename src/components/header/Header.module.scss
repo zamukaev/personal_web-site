@@ -1,15 +1,20 @@
 .header{
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: 100%;
-  display: flex;
- // justify-content: space-between;
-  align-items: center;
-  height: 112px;
-  padding: 0px 160px;
-  z-index: 60;
-   background-color: #0000005e;
-   box-shadow: 1px 0 10px 3px #2fb1cf;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 112px;
+    z-index: 60;
+    box-shadow: 1px 0 10px 3px #2fb1cf;
+    padding: 0px 160px;
+    @media (max-width:1024px) {
+        padding: 0px 60px;
+    }
+    @media (max-width:736px) {
+        padding: 0px 10px;
+    }
 }

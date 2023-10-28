@@ -1,21 +1,37 @@
 .skill{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    // background: #09171d;
+    // align-items: center;
     background: #1A1A1A;
     padding: 40px 160px;
+    @media (max-width:1024px) {
+        padding: 20px 60px;
+    }
+    @media (max-width:736px) {
+        padding: 10px 10px;
+    }
     .headline{
-        margin: 0px 0px 120px 0px;
+        align-self: center;
+        margin: 40px 0px 100px 0px;
+        @media (max-width:1024px) {
+          margin: 40px 0px 60px 0px
+        } 
     }
     .skillsList{
-        max-width: 900px;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        margin: -45px;
-       
- 
+        justify-content: center;
+        // align-items: flex-start;
+         flex-wrap: wrap;
+         margin: -45px;
+        @media (max-width:1024px) {
+            margin: 25px;
+        }
+    
+    }
+    .skillsList.mounted{
+        &:first-child{
+            color:red;
+            background: red;
+        }
     }
 }

@@ -1,78 +1,32 @@
 import { FC, useCallback, useState } from "react";
-import Button, { Size, ThemeButton } from "../button/Button";
 import classNames from "classnames";
+import { useInView } from 'react-intersection-observer';
+
 import { Headline, HeadlineSize } from "../headline/Headline";
 import { WorksItem } from "./worksItem/WorksItem";
+import Button, { Size, ThemeButton } from "../button/Button";
 
-import WorkImage from "../../assets/works/blog.png";
-import { StaticImageData } from "next/image";
+import { db } from "../../../db/db";
+import { Work } from "../../../db/types";
+
 import styles from "./Works.module.scss";
 
 interface WorksProps {
-    scroll: number;
 }
+
 interface Tabs {
     text: string;
     id: number;
     category: string;
 }
-interface Works {
-    id: string;
-    title: string;
-    text: string;
-    gitHubLink: string;
-    pageLink: string;
-    image: StaticImageData;
-    category: string;
-}
-export const tabs: Array<Tabs> = [
-    { text: 'All', id: 0, category: '' },
-    { text: 'React', id: 1, category: 'react.js' },
-    { text: 'Next', id: 2, category: 'next.js' }
-];
 
-export const worksObj: Array<Works> = [
-    {
-        id: '1h4u62',
-        title: 'Blog',
-        text: 'Next.js based wep-app(Blog platform)',
-        gitHubLink: 'https://github.com/zamukaev/capstone-project',
-        pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-        image: WorkImage,
-        category: 'next.js'
-    },
-    {
-        id: '1h245632',
-        title: 'Blog',
-        text: 'Next.js based wep-app(Blog platform)',
-        gitHubLink: 'https://github.com/zamukaev/capstone-project',
-        pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-        image: WorkImage,
-        category: 'react.js'
-    },
-    {
-        id: '1e6b981',
-        title: 'Blog',
-        text: 'Next.js based wep-app(Blog platform)',
-        gitHubLink: 'https://github.com/zamukaev/capstone-project',
-        pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-        image: WorkImage,
-        category: 'next.js'
-    },
-    {
-        id: '0e6b31',
-        title: 'Blog',
-        text: 'Next.js based wep-app(Blog platform)',
-        gitHubLink: 'https://github.com/zamukaev/capstone-project',
-        pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-        image: WorkImage,
-        category: 'next.js'
-    },
-];
-const Works: FC<WorksProps> = ({ scroll }) => {
+const Works: FC = () => {
     const [tabIndex, setTabIndex] = useState(0);
     const [category, setCategory] = useState('');
-    let worksListToDisplay = worksObj;
+    const [ref, inView] = useInView({
+        triggerOnce: false,
+    });
+    let worksListToDisplay = db.works;
 
     const tabSelectedHandler = (id: number, category: string) => {
         setTabIndex(id);
@@ -80,13 +34,11 @@ const Works: FC<WorksProps> = ({ scroll }) => {
     }
 
     if (category) {
-        worksListToDisplay = worksObj.filter((work: Works) => work.category.includes(category))
-        console.log(worksListToDisplay)
-        console.log('category---: ', category)
+        worksListToDisplay = db.works.filter((work: Work) => work.category.includes(category));
     }
 
     const renderWorksList = useCallback(() => {
-        return worksListToDisplay.map((work: Works) => (
+        return worksListToDisplay.map((work: Work) => (
             <WorksItem
                 key={work.id}
                 title={work.title}
@@ -95,23 +47,21 @@ const Works: FC<WorksProps> = ({ scroll }) => {
                 pageLink={work.pageLink}
                 gitHubLink={work.gitHubLink}
                 id={work.id}
-                scroll={scroll}
             />
         ))
-    }, [scroll, worksListToDisplay])
-
+    }, [worksListToDisplay]);
 
     return (
-        <section className={styles.works}>
+        <section ref={ref} className={classNames(styles.works, { [styles.mounted]: inView })}>
             <Headline
                 headline="h2"
                 size={HeadlineSize.M}
-                className={classNames(styles.headline, { [styles.mounted]: scroll >= 1000 })}
+                className={classNames(styles.headline)}
             >
                 My Work
             </Headline>
-            <ul className={classNames(styles.tabs, { [styles.mounted]: scroll > 1000 })}>
-                {tabs.map((tab: Tabs, index: number) =>
+            <ul className={classNames(styles.tabs)}>
+                {db.tabs.map((tab: Tabs, index: number) =>
                     <li
                         key={tab.id}
                         className={classNames(styles.tab, { [styles.active]: tabIndex == index })}

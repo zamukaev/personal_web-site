@@ -1,16 +1,18 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, } from 'react';
 import Image from 'next/image';
 
-import styles from './WorksItem.module.scss';
+import { useInView } from 'react-intersection-observer';
+import classNames from 'classnames';
+
 import { Headline, HeadlineSize } from '@/components/headline/Headline';
+import { AppLink, AppLinkTheme, AppLinkSize } from '@/components/appLink/AppLink'
 
-import { AppLink, AppLinkTheme, AppLinkSize } from '@/components/appLink/AppLink';
-import Works from '../Works';
+import { Work } from '../../../../db/types';
 
+import styles from './WorksItem.module.scss';
 
-interface WorksItemProps extends Omit<Works, 'category'> {
+interface WorksItemProps extends Omit<Work, 'category'> {
     className?: string;
-    scroll: number;
 }
 
 export const WorksItem: FC<WorksItemProps> = (props) => {
@@ -21,23 +23,15 @@ export const WorksItem: FC<WorksItemProps> = (props) => {
         image,
         pageLink,
         gitHubLink,
-        scroll
     } = props;
-    const [isMounted, setIsMounted] = useState(true);
 
-    useEffect(() => {
-        if (scroll >= 1100) {
-            setIsMounted(true);
-        }
-        if (scroll < 1100) {
-            setIsMounted(false)
-        }
-
-    }, [scroll])
+    const [ref, inView] = useInView({
+        triggerOnce: false,
+    });
 
     return (
-        <div className={`${styles.worksItem}  ${isMounted && styles.mounted}`}>
-            <Image className={styles.image} src={image} alt={title} width={200} height={150} />
+        <div ref={ref} className={classNames(styles.worksItem, { [styles.mounted]: inView })}>
+            <Image className={styles.image} src={image} alt={title} width={600} height={450} />
             <div className={styles.overlay}>
                 <Headline
                     className={styles.headline}

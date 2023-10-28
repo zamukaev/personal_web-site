@@ -1,36 +1,31 @@
-import { FC, ReactNode } from 'react'
+import { FC } from 'react';
+import { useInView } from 'react-intersection-observer';
+
+import classNames from 'classnames';
 
 import styles from './SkillsItem.module.scss';
 
-
 interface SkillsItemProps {
     className?: string;
-    firstSkillsRow?: boolean;
-    secondSkillsRow?: boolean;
-    therdSkillsRow?: boolean;
     icon: any;
     text?: string;
 }
 
 export const SkillsItem: FC<SkillsItemProps> = (props) => {
+    const [ref, inView] = useInView({
+        triggerOnce: false,
+    });
+
     const {
         className,
-        firstSkillsRow,
-        secondSkillsRow,
-        therdSkillsRow,
         icon,
         text
     } = props;
+
     const Icon = icon;
 
     return (
-        <li
-            className={`
-                        ${styles.skillItem}
-                        ${firstSkillsRow && styles.firstRowActive}
-                        ${secondSkillsRow && styles.secondRowActive}
-                        ${therdSkillsRow && styles.therdRowActive}
-                        `}>
+        <li ref={ref} className={classNames(styles.skillItem, { [styles.mounted]: inView })}>
             <span className={styles.content}>
                 {text}
             </span>

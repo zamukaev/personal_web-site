@@ -9,12 +9,12 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = () => {
-  return (
-    <header className={styles.header}>
-      <Logo />
-      <Navbar />
-    </header>
-  );
+    return (
+        <header className={styles.header}>
+            <Logo />
+            <Navbar />
+        </header>
+    );
 }
 
 export default Header;

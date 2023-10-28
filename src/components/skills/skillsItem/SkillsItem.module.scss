@@ -1,156 +1,84 @@
  .skillItem{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-            position: relative;
-            background: #fff;
-            color: #000;
-            height: 120px;
-            width: 200px;
-            margin: 45px;
-           
-            &:first-child{
-                position: relative;
-                opacity: 0;
-                visibility: hidden;
-                transition: all ease 1s;
-                left: -150px;
-            }
-            &:nth-child(2){
-                opacity: 0;
-                visibility: hidden;
-                transition: all ease 1s;
-                position: relative;
-                bottom: -150px;
-            }
-            &:nth-child(3){
-                position: relative;
-                opacity: 0;
-                visibility: hidden;
-                transition: all ease 1s;
-                right: -150px;
-            }
-            &:nth-child(4){
-                position: relative;
-                opacity: 0;
-                visibility: hidden;
-                transition: all ease 1s;
-                left: -150px;
-            }
-            &:nth-child(5){
-                position: relative;
-                opacity: 0;
-                visibility: hidden;
-                transition: all ease 1s;
-                bottom: -150px;
-            }
-            &:nth-child(6){
-                position: relative;
-                opacity: 0;
-                visibility: hidden;
-                transition: all ease 1s;
-                right: -150px;
-            }
-            &:nth-child(7){
-                position: relative;
-                opacity: 0;
-                visibility: hidden;
-                transition: all ease 1s;
-                left: -150px;
-            }
-            &:nth-child(8){
-                position: relative;
-                opacity: 0;
-                visibility: hidden;
-                transition: all ease 1s;
-                bottom: -150px;
-            }
-            &:nth-child(9){
-                position: relative;
-                opacity: 0;
-                visibility: hidden;
-                transition: all ease 1s;
-                right: -150px;
-            }
-        }
-         .firstRowActive{
-            &:first-child{
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                transition: all ease 1s;
-                left: 0;
-            }
-            &:nth-child(2){
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                transition: all ease 1s;
-                bottom: 0;
-            }
-            &:nth-child(3){
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                transition: all ease 1s;
-                right: 0;
-            }
-        }
-        .secondRowActive{
-            opacity: 1;
-            visibility: visible;
-            transition: all ease 1s;
-            &:nth-child(4){
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                transition: all ease 1s;
-                left: 0;
-            }
-            &:nth-child(5){
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                transition: all ease 1s;
-                bottom: 0;
-            }
-            &:nth-child(6){
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                transition: all ease 1s;
-                right: 0;
-            }
-        }
-        .therdRowActive{
-            opacity: 1;
-            visibility: visible;
-            transition: all ease 1s;
-            &:nth-child(7){
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                transition: all ease 1s;
-                left: 0;
-            }
-            &:nth-child(8){
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                transition: all ease 1s;
-                bottom: 0;
-            }
-            &:nth-child(9){
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                transition: all ease 1s;
-                right: 0;
-            }
-        }
+    flex:0 1 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    background: #fff;
+    color: #000;
+    height: 120px;
+    margin: 45px;
+    opacity: 0;
+    transition: all ease 1s;
+    @media (max-width:1024px) {
+       flex:0 1 40%;
+       margin: 25px;
+    }
+    @media (max-width:736px) {
+         flex:0 1 100%;
+    }
+    &:first-child{
+        transform: translateX(-200px);
+    } 
+    &:nth-child(2){
+        transform: translateY(200px);
+    }
+    &:nth-child(3){
+        transform: translateX(200px);
+    }
+    &:nth-child(4){
+        transform: translateX(-200px);
+    }
+    &:nth-child(5){
+        transform: translateY(200px);
+    }
+     &:nth-child(6){
+        transform: translateX(200px);
+    }
+    &:nth-child(7){
+        transform: translateX(-200px);
+    }
+    &:nth-child(8){
+        transform: translateY(100px);
+    }
+    &:nth-child(9){
+        transform: translateX(200px);
+    }        
+ }
+.skillItem.mounted{
+     opacity: 1;
+    &:first-child{
+        transform: translateX(0);
+    } 
+    &:nth-child(2){
+        transform: translateY(0);
+    }
+    &:nth-child(3){
+        transform: translateX(0);
+    }
+    &:nth-child(4){
+        transform: translateX(0);
+    }
+    &:nth-child(5){
+        transform: translateY(0);
+    }
+     &:nth-child(6){
+        transform: translateX(0);
+    }
+    &:nth-child(7){
+        transform: translateX(0);
+    }
+    &:nth-child(8){
+        transform: translateY(0);
+    }
+    &:nth-child(9){
+        transform: translateX(0);
+    }
+}
+
 .icon{
     position: absolute;
     top: -40px;
@@ -164,7 +92,7 @@
     width: 80px;
     background: #fff;
     box-shadow: 0 0 6px 2px gray;
-    &:hover{
-        box-shadow: 0 0 6px 3px gray; 
-    }
+        &:hover{
+            box-shadow: 0 0 6px 3px gray; 
+        }
 }

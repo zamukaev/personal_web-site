@@ -1,21 +1,29 @@
 .navbar{
- @media (max-width:733px) {
-  display: none;
- }
+    @media (max-width:733px) {
+     display: none;
+    }
 }
 .menu{
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 .menuItem{
-  cursor: pointer;
-  margin-right: 39px;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in;
-   &:hover{
-    color: #f90202;
-  }
-  @media (max-width:833px) {
-     margin-right: 12px;
-  }
+    cursor: pointer;
+    margin-right: 39px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in;
+    padding:5px;
+    border-radius: 2px;
+    &:last-child{
+        margin-right: 0px;
+    }
+    @media (max-width:1064px) {
+       margin-right: 29px;
+    }
+    &:hover{
+        background: #2fb1cf;
+    }
+    @media (max-width:833px) {
+        margin-right: 12px;
+    }
 }
