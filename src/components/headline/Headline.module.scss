@@ -1,13 +1,20 @@
 
 .headline{
     color: #FFF;
-    font-style: normal;
-    line-height: normal; 
+    font-family: var(--font-family-main);
 }
 .s{
-    font-size: 25px;
+    font-size: 35px;
     line-height: 43px;
     font-weight: 700;
+    @media (max-width:1024px) {
+        font-size: 31px;
+        line-height: 43px;
+    }
+    @media (max-width:736px) {
+        font-size: 28px;
+        line-height: 33px;
+    }
 }
 .m{
     font-size: 45px;

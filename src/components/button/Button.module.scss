@@ -18,11 +18,11 @@
     padding: 8px 10px;
 }
 .outline{
-    border: 2px solid #2fb1cf; 
-    color: #2fb1cf;
+    border: 2px solid var(--primary-color);
+    color:  var(--primary-color);
     // padding: 29.5px 131.03px 31.5px 130.97px;
     &:hover{
-       box-shadow:0px 0px 9px 2px #2fb1cf;
+       box-shadow:0px 0px 9px 2px var(--primary-color);
     }
 }
 .outlineRed{
@@ -34,25 +34,30 @@
 }
 
 .l{
-  padding: 35px 155px;
-     @media (max-width:1024px) {
-        padding: 25px 115px;
-    }
-    @media (max-width:736px) {
-         padding: 25px 100px;
-        background:url("../../assets/bg/001.jpg") 0px 110px / 100% 70% no-repeat;
-    } 
+    font: var(--font-l);
+    padding: 32px 150px;
+        @media (max-width:1024px) {
+            font: var(--font-m);
+            padding: 25px 115px;
+        }
+        @media (max-width:736px) {
+            padding: 25px 100px;
+            background:url("../../assets/bg/001.jpg") 0px 110px / 100% 70% no-repeat;
+        } 
 }
 .m{
     padding: 23px 48px;
+    font: var(--font-m);
          @media (max-width:1024px) {
          padding: 23px 40px;
     }
     @media (max-width:736px) {
+        font: var(--font-s);
           padding: 20px 35px;
          background:url("../../assets/bg/001.jpg") 0px 110px / 100% 70% no-repeat;
     }
 }
 .s{
+    font: var(--font-s);
     padding: 10px 15px;
 }

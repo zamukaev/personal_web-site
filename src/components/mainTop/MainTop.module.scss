@@ -21,10 +21,10 @@
         justify-content: center;
       .headline{
         .name{
-          color:#800000;
+          color:var(--secondary-color);
         }
         .dev{
-          color: #2fb1cf;
+          color: var(--primary-color);
         }
       }
       .button{

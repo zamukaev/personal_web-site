@@ -1,3 +1,4 @@
+@import './varebles.scss';
 *,
 *::before,
 *::after {
@@ -32,9 +33,6 @@ img {
 html,
 body {
 	height: 100%;
-	font-size: 14px;
-	line-height: 1;
-	font-family: lato;
 }
 input,
 button,
