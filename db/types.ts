@@ -17,5 +17,5 @@ export interface Skill {
 
 export interface DB {
     works: Work[];
-    skills: Skill[]
+    skills: Skill[];
 }
