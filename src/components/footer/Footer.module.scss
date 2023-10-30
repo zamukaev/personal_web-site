@@ -1,0 +1,19 @@
+.footer{
+    padding: 20px 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width:936px) {
+        flex-direction: column-reverse;
+        justify-content: space-around;
+    }
+    .social{
+        display: flex;
+        align-items: center;
+        .icon{
+            fill: var(--primary-text-color);        
+            width: 49px;
+            height: 49px;
+        }
+    }
+}

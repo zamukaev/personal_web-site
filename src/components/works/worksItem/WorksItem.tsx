@@ -31,7 +31,7 @@ export const WorksItem: FC<WorksItemProps> = (props) => {
 
     return (
         <div ref={ref} className={classNames(styles.worksItem, { [styles.mounted]: inView })}>
-            <Image className={styles.image} src={image} alt={title} width={600} height={450} />
+            <Image className={styles.image} src={image} alt={title} width={705} height={550} />
             <div className={styles.overlay}>
                 <Headline
                     className={styles.headline}

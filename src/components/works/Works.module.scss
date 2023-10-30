@@ -35,7 +35,11 @@
         display:flex;
         flex-wrap: wrap;
         justify-content:space-between;
+        // justify-content:center;
         margin: -15px;
+        @media (max-width:1587px) {
+            justify-content:center;
+        }
         @media (max-width:1024px) {
             justify-content:center;
         }

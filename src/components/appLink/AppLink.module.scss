@@ -11,6 +11,17 @@
        color: #ffff;
     }
 }
+.primary{
+    color: var(--primary-text-color);
+     transition: color ease 0.3s;
+    &:hover{
+        // transition: all ease 1s;
+        color:var(--primary-color);
+    }
+}
+.secondary{
+    color: var(--secondary-color);
+}
 .l{ 
     padding: 33px;
 }

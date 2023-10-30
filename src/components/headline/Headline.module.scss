@@ -4,7 +4,7 @@
     font-family: var(--font-family-main);
 }
 .s{
-    font-size: 35px;
+    font-size: 30px;
     line-height: 43px;
     font-weight: 700;
     @media (max-width:1024px) {
@@ -17,15 +17,15 @@
     }
 }
 .m{
-    font-size: 45px;
+    font-size: 35px;
     line-height: 53px;
     font-weight: 700;
     @media (max-width:1024px) {
-        font-size: 35px;
+        font-size: 30px;
         line-height: 43px;
     }
     @media (max-width:736px) {
-        font-size: 30px;
+        font-size: 26px;
         line-height: 33px;
     }
 }

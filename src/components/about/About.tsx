@@ -6,7 +6,14 @@ import Image from 'next/image';
 import { Headline, HeadlineSize } from '../headline/Headline';
 import styles from './About.module.scss';
 import { Text, TextSize } from '../text/Text';
-import Link from 'next/link';
+
+
+export const about = [
+    { id: 1, icon: '', title: 'Meine Reise', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo explicabo nihil, odit dicta totam, ut esse provident aliquid quisquam voluptatem quam pariatur dolorem libero earum similique voluptate consectetur sint.' },
+    { id: 2, icon: '', title: 'Meine Leidenschaft', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo explicabo nihil, odit dicta totam, ut esse provident aliquid quisquam voluptatem quam pariatur dolorem libero earum similique voluptate consectetur sint.' },
+    { id: 3, icon: '', title: 'Meine Suche', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo explicabo nihil, odit dicta totam, ut esse provident aliquid quisquam voluptatem quam pariatur dolorem libero earum similique voluptate consectetur sint.' },
+    { id: 4, icon: '', title: 'Die Reise geht weiter', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, illo explicabo nihil, odit dicta totam, ut esse provident aliquid quisquam voluptatem quam pariatur dolorem libero earum similique voluptate consectetur sint.' }
+];
 
 interface AboutProps {
     className?: string;
@@ -45,61 +52,21 @@ export const About: FC<AboutProps> = (props) => {
                 </div>
             </div>
             <ul className={styles.footer}>
-                <li className={styles.item}>
-                    <div className={styles.icon}></div>
-                    <Headline
-                        className={styles.title}
-                        size={HeadlineSize.s}
-                        headline='h3'
-                    >My Journ</Headline>
-                    <Text
-                        size={TextSize.M}
-                        className={styles.text}>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis quasi facere natus illo voluptas possimus voluptates quos pariatur. Quidem sint quia, ad fugit tempore totam harum quam explicabo iure error?
-                    </Text>
-                </li>
-                <li className={styles.item}>
-                    <div className={styles.icon}></div>
-                    <Headline
-                        className={styles.title}
-                        size={HeadlineSize.s}
-                        headline='h3'
-                    >My Journ</Headline>
-                    <Text
-                        size={TextSize.M}
-                        className={styles.text}
-                    >
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae at laboriosam exercitationem molestias in accusamus mollitia, illo ipsam ratione, aliquam illum deleniti magni consequuntur atque? Fugiat tempora nam mollitia voluptate.
-                    </Text>
-                </li>
-                <li className={styles.item}>
-                    <div className={styles.icon}></div>
-                    <Headline
-                        className={styles.title}
-                        size={HeadlineSize.s}
-                        headline='h3'
-                    >My Journ</Headline>
-                    <Text
-                        size={TextSize.M}
-                        className={styles.text}
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dicta illum a est velit. Temporibus aliquam officia possimus a et! Quibusdam magnam facilis at aut accusantium! Iusto quae itaque consequuntur!
-                    </Text>
-                </li>
-                <li className={styles.item}>
-                    <div className={styles.icon}></div>
-                    <Headline
-                        className={styles.title}
-                        size={HeadlineSize.s}
-                        headline='h3'
-                    >My Journ</Headline>
-                    <Text
-                        size={TextSize.M}
-                        className={styles.text}
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, cum facilis dignissimos velit fugiat eveniet. Reprehenderit consectetur maxime sequi eaque, asperiores perferendis tempora saepe qui tempore mollitia error voluptatum distinctio?
-                    </Text>
-                </li>
+                {about.map((item) => (
+                    <li key={item.id} className={styles.item}>
+                        <div className={styles.icon}></div>
+                        <Headline
+                            className={styles.title}
+                            size={HeadlineSize.s}
+                            headline='h3'
+                        >{item.title}</Headline>
+                        <Text
+                            size={TextSize.M}
+                            className={styles.text}>
+                            {item.text}
+                        </Text>
+                    </li>
+                ))}
             </ul>
         </section>
     );
