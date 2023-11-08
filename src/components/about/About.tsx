@@ -1,25 +1,19 @@
 import { FC } from 'react';
-import Image from 'next/image';
-
-
-
-import { Headline, HeadlineSize } from '../headline/Headline';
 import styles from './About.module.scss';
-import { Text, TextSize, TextTheme } from '../text/Text';
-import { useInView } from 'react-intersection-observer';
+
 import classNames from 'classnames';
 import React from 'react';
-import { AboutMe } from './about/aboutMe/AboutMe';
-import { AboutMeItems } from './about/aboutMeItems/AboutMeItems';
+import { AboutMe } from './aboutMe/AboutMe';
+import { AboutMeItems } from './aboutMeItems/AboutMeItems';
 
-interface AboutItem {
+export interface AboutItem {
     id: number;
     icon: string;
     title: string;
     text: string;
     cls: string;
 }
-interface AboutMe {
+export interface AboutMe {
     id: number;
     title: string;
     image: string;
@@ -92,16 +86,9 @@ export const About: FC<AboutProps> = (props) => {
                 />
 
             ))}
-            <ul className={classNames(styles.footer)}>
-                {aboutMeItem.map((item: AboutItem) => (
-                    <AboutMeItems
-                        key={item.id}
-                        title={item.title}
-                        text={item.text}
-                        cls={item.cls}
-                    />
-                ))}
-            </ul>
-        </section>
+            <AboutMeItems
+                aboutMeItem={aboutMeItem}
+            />
+        </section >
     );
 }

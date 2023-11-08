@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useInView } from 'react-intersection-observer';
 import classNames from 'classnames';
 import { Headline, HeadlineSize } from '@/components/headline/Headline';
-import { Text, TextSize } from '../../../text/Text';
+import { Text, TextSize } from '../../text/Text';
 import Image from 'next/image';
 
 import styles from './AboutMe.module.scss';
