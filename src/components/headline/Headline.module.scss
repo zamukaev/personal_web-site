@@ -17,25 +17,25 @@
     }
 }
 .m{
-    font-size: 35px;
+   font-size: 40px;
     line-height: 53px;
     font-weight: 700;
     @media (max-width:1024px) {
-        font-size: 30px;
+        font-size: 35px;
         line-height: 43px;
     }
     @media (max-width:736px) {
-        font-size: 26px;
-        line-height: 33px;
+        font-size: 30px;
+        line-height: 34px;
     }
 }
 .l{
-    font-size: 65px;
-    font-weight: 700;
+     font-size: 65px;
+     font-weight: 700;
      @media (max-width:1024px) {
         font-size: 45px;
      }
      @media (max-width:736px) {
         font-size: 35px;
-     }
+     } 
 }

@@ -1,0 +1,66 @@
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin:40px 0px 100px 0px;
+    @media (max-width:1024px) {
+        flex-direction: column;
+    }
+    @media (max-width:736px) {
+        flex-direction: column;
+        margin:40px 0px 50px 0px
+    }
+    .avatar{
+    flex:0 1 33.333%;
+    border-radius: 20px;
+    transition: all ease 1s;
+    transform: scale(0);
+    @media (max-width:1324px) {
+        flex:0 1 50%;
+    }
+    .img{
+        width: 100%;
+        border-radius: 20px;
+    }
+}
+.aboutMe{
+    flex:0 1 33.333%;
+    text-align: center;
+    margin-left: 20px;
+    opacity: 0;
+    transition: all ease 1s;
+    transform: translateX(500px);
+    @media (max-width:1324px) {
+        flex:0 1 50%;
+    }
+    .title{
+        margin-bottom:30px;
+        @media (max-width:1024px) {
+            margin-top: 30px;
+        }
+    }
+    .secondText{
+        margin-top: 15px;
+    }
+    .cv{
+        text-transform: uppercase;
+        color: var(--primary-color);
+        margin-left: 10px;
+        &:hover{
+            color:rgb(2, 143, 143);
+        }
+    }
+}
+   
+}
+
+
+.top.mounted{
+    .aboutMe{
+        opacity: 1;
+        transform: translateX(0px);
+    } 
+    .avatar{
+            transform: scale(1);
+    }
+}

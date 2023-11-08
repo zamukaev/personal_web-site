@@ -6,6 +6,7 @@ import styles from "./Button.module.scss";
 export enum ThemeButton {
     CLEAR = 'clear',
     OUTLINE = 'outline',
+    CIRCLES = 'circles',
     OUTLINE_RED = 'outlineRed',
 }
 
@@ -26,7 +27,7 @@ const Button: FC<ButtonProps> = (props) => {
         className,
         theme = ThemeButton.CLEAR,
         children,
-        size = Size.L,
+        size = '',
         ...otherProps } = props;
     return (
         <button type="button"

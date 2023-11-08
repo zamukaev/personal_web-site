@@ -10,97 +10,17 @@
     @media (max-width:736px) {
         padding: 0px 10px;
     }
-    .top{
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        margin:40px 0px 100px 0px;
-        @media (max-width:1024px) {
-          flex-direction: column;
-         }
-        @media (max-width:736px) {
-           flex-direction: column;
-            margin:40px 0px 50px 0px
-        }
-        .avatar{
-            flex:0 1 33.333%;
-            border-radius: 20px;
-            @media (max-width:1324px) {
-                flex:0 1 50%;
-            }
-            .img{
-                width: 100%;
-                border-radius: 20px;
-            }
-        }
-        .aboutMe{
-             flex:0 1 33.333%;
-             text-align: center;
-             margin-left: 20px;
-             @media (max-width:1324px) {
-                flex:0 1 50%;
-             }
-             .title{
-                 margin-bottom:30px;
-                 @media (max-width:1024px) {
-                 margin-top: 30px;
-             }
-             }
-             .secondText{
-                margin-top: 15px;
-             }
-             .cv{
-                text-transform: uppercase;
-                color: var(--primary-color);
-                margin-left: 10px;
-                &:hover{
-                    color:rgb(2, 143, 143);
-                }
-             }
-        }
-   
-    }
+
+
     .footer{
         display: flex;
         flex-wrap: wrap;
         justify-content:space-between;
         align-items: stretch;
         border-top: 4px solid var(--primary-color);
-        padding-top:100px;
-        margin: -15;
-        @media (max-width:1500px) {
-            justify-content:center;
-        }
-        @media (max-width:736px) {
-            
-        }
-        .item{
-             flex: 0 1 20%;
-             display: flex;
-             flex-direction: column;
-             align-items: center;
-             justify-content: stretch;
-             text-align: center;
-             margin: 15px;
-             @media (max-width:1500px) {
-                flex: 0 1 25%;
-             }
-             @media (max-width:1442px) {
-                flex: 0 1 40%;
-             }
+        padding-top:80px;
+        margin: 15px;
 
-             @media (max-width:936px) {
-             flex: 0 1 100%;
-             }
-             .icon{
-                width: 90px;
-                height: 90px;
-                border-radius: 50px;
-                background: var(--primary-color);
-             }
-             .title{
-                margin: 20px 0px;
-             }
-        }
+       
     }
 }

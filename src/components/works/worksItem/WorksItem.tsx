@@ -13,6 +13,7 @@ import styles from './WorksItem.module.scss';
 
 interface WorksItemProps extends Omit<Work, 'category'> {
     className?: string;
+
 }
 
 export const WorksItem: FC<WorksItemProps> = (props) => {
@@ -23,6 +24,7 @@ export const WorksItem: FC<WorksItemProps> = (props) => {
         image,
         pageLink,
         gitHubLink,
+
     } = props;
 
     const [ref, inView] = useInView({
@@ -60,6 +62,6 @@ export const WorksItem: FC<WorksItemProps> = (props) => {
                     </AppLink>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }

@@ -91,4 +91,10 @@ export const db: Record<string, Array<any>> = {
         { text: 'React', id: 1, category: 'react.js' },
         { text: 'Next', id: 2, category: 'next.js' }
     ],
+    navigation: [
+        { content: 'home' },
+        { content: 'skill' },
+        { content: 'portfolio' },
+        { content: 'about me' },
+    ]
 }

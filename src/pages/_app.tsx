@@ -1,9 +1,8 @@
-import Layout from '../components/layout/Layout'
-import '@/styles/globals.scss'
-import type { AppProps } from 'next/app'
-import { Roboto } from 'next/font/google'
-import '../config/i18n/i18n';
+import Layout from '../components/layout/Layout';
 
+import '@/styles/globals.scss';
+import type { AppProps } from 'next/app';
+import { Roboto } from 'next/font/google';
 
 const roboto = Roboto({
     weight: ['400', '500', '700'],
@@ -12,12 +11,12 @@ const roboto = Roboto({
     display: 'swap',
 })
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
     return (
-
         <Layout className={roboto.className} >
             <Component {...pageProps} />
         </Layout>
-
     )
 }
+
+export default App;

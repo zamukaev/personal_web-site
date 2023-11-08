@@ -55,3 +55,10 @@ body{
 #__next{
 	height: 100%;
 }
+*::-webkit-scrollbar {
+    width: 12px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}

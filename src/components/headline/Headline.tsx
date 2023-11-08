@@ -10,7 +10,7 @@ export enum HeadlineSize {
 }
 interface HeadlineProps {
     className?: string;
-    headline?: 'h1' | 'h2' | 'h3';
+    headline?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
     size?: HeadlineSize;
     children?: ReactNode;
     ref?: LegacyRef<HTMLHeadingElement>;

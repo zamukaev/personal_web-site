@@ -1,0 +1,21 @@
+.toTop{
+    position: fixed;
+    bottom: 40px;
+    right: 50px;
+    border-radius: 50px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease 0.3s;
+    &:hover{
+        box-shadow: 0px 0px 10px 1px var(--primary-color) ;
+    
+    }
+    .arrow{
+        font-size: 36px; 
+        border-radius: 50px;
+    }
+}
+.visible{
+    opacity: 1;
+    visibility: visible;
+}

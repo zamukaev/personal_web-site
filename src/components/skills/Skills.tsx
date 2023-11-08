@@ -7,12 +7,12 @@ import { SkillsItem } from "./skillsItem/SkillsItem";
 import { db } from "../../../db/db";
 
 import styles from "./Skills.module.scss";
-
-
-
-const Skill: FC = () => {
+interface SkillsProps {
+    skillRef: any
+}
+const Skill: FC<SkillsProps> = ({ skillRef }) => {
     return (
-        <section className={styles.skill}>
+        <section ref={skillRef} className={styles.skill}>
             <Headline
                 headline="h2"
                 size={HeadlineSize.M}

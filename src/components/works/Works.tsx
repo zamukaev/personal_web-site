@@ -12,6 +12,7 @@ import { Work } from "../../../db/types";
 import styles from "./Works.module.scss";
 
 interface WorksProps {
+    workRef: any;
 }
 
 interface Tabs {
@@ -20,7 +21,7 @@ interface Tabs {
     category: string;
 }
 
-const Works: FC = () => {
+const Works: FC<WorksProps> = ({ workRef }) => {
     const [tabIndex, setTabIndex] = useState(0);
     const [category, setCategory] = useState('');
     const [ref, inView] = useInView({
@@ -52,7 +53,7 @@ const Works: FC = () => {
     }, [worksListToDisplay]);
 
     return (
-        <section ref={ref} className={classNames(styles.works, { [styles.mounted]: inView })}>
+        <section ref={workRef} className={classNames(styles.works, { [styles.mounted]: inView })}>
             <Headline
                 headline="h2"
                 size={HeadlineSize.M}
@@ -60,7 +61,7 @@ const Works: FC = () => {
             >
                 My Work
             </Headline>
-            <ul className={classNames(styles.tabs)}>
+            <ul ref={ref} className={classNames(styles.tabs)}>
                 {db.tabs.map((tab: Tabs, index: number) =>
                     <li
                         key={tab.id}

@@ -1,37 +1,50 @@
 .homeTop{
     display: flex;
     flex-direction: column;
-    // justify-content: end;
     position: relative;
-    height: 100vh;
+    height:calc(100vh - 126px) ;
     padding: 0px 160px;
-    background:url("../../assets/bg/001.jpg") 0px 110px / 100% 100% no-repeat;
-     @media (max-width:1024px) {
-        padding: 0px 60px;
-    }
-    @media (max-width:736px) {
-        padding: 0px 10px;
-        background:url("../../assets/bg/001.jpg") 0px 110px / 100% 70% no-repeat;
-    }
-    .left{
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: center;
-      .headline{
-        .name{
-          color:var(--secondary-color);
+    background:url("../../assets/bg/001.jpg") 0px 0px / 100% 100% no-repeat;
+        @media (max-width:1024px) {
+            padding: 0px 60px;
         }
-        .dev{
-          color: var(--primary-color);
+        @media (max-width:736px) {
+            padding: 0px 10px;
+            background:url("../../assets/bg/001.jpg") -3px 0px / 100% 70% no-repeat;
         }
-      }
-      .button{
-        margin-top: 66px;
-        @media (max-width:536px) {
-            // align-self: center;
+        .content{
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            .headline{
+                opacity: 0;
+                transition: all ease 1s;
+                transform: translateX(-1000px);
+                margin-bottom: 120px;
+                .name{
+                    margin-left: 10px;
+                    color:var(--secondary-color);
+                }
+                .dev{
+                    color: var(--primary-color);
+                }
+            }
+            .button{
+                transform: translateX(1000px);
+                opacity: 0;
+                transition: all ease 1s;
+            }
         }
-      }
+    .content.mounted{
+        .button{
+            transform: translateX(0);
+            opacity: 1;
+        }  
+        .headline{
+            transform: translateX(0);
+            opacity: 1; 
+        } 
     }
 }

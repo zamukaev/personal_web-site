@@ -2,17 +2,18 @@ import { FC } from "react";
 import styles from "./Header.module.scss";
 import Logo from "../logo/Logo";
 import Navbar from "../navbar/Navbar";
-import LangSwitcher from "../langSwitcher/LangSwitcher";
+import { ToTop } from "../toTop/ToTop";
+
 
 interface HeaderProps {
-
+    homeRef: any;
+    onScrollToSection: (section: string) => void;
 }
-
-const Header: FC<HeaderProps> = () => {
+const Header: FC<HeaderProps> = ({ onScrollToSection, homeRef }) => {
     return (
-        <header className={styles.header}>
+        <header ref={homeRef} className={styles.header}>
             <Logo />
-            <Navbar />
+            <Navbar onScrollToSection={onScrollToSection} />
         </header>
     );
 }

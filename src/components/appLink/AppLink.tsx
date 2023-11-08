@@ -36,7 +36,7 @@ export const AppLink: FC<AppLinkProps> = (props) => {
     } = props;
 
     return (
-        <Link target={blank ? '_blank' : ''} className={classNames(styles.appLink, styles[theme], styles[size])}{...otherProps}>
+        <Link target={blank ? '_blank' : ''} className={classNames(styles.appLink, styles[theme], styles[size], className)}{...otherProps}>
             {children}
         </Link>
     );

@@ -9,41 +9,49 @@
     font-weight: 400;
     line-height: normal;
     margin: 0px;
-    border-radius: 10px;
-    outline:none;
-    background: none;  
+   
     transition: all 0.3s ease-in;
 }
+
+
+// themes
 .clear{
-    padding: 8px 10px;
+    padding:0px;
+    margin: 0px;
+    outline: none;
+    background: none;
+
 }
 .outline{
     border: 2px solid var(--primary-color);
     color:  var(--primary-color);
-    // padding: 29.5px 131.03px 31.5px 130.97px;
+    background: none;
+   
     &:hover{
        box-shadow:0px 0px 9px 2px var(--primary-color);
     }
+     border-radius: 10px; 
 }
 .outlineRed{
     border: 2px solid rgb(128,0,0); 
-    color: #ffff;
+    color: var(--primary-text-color);
+    border-radius: 10px; 
+     background: none;
     &:hover{
        background: rgb(128,0,0);
     }
 }
+.circles{
+    height: 45px;
+    width: 45px;
+    border-radius: 50px;
+    color: var(--primary-text-color);
+    background: var(--primary-color);
+}
 
-.l{
-    font: var(--font-l);
-    padding: 32px 150px;
-        @media (max-width:1024px) {
-            font: var(--font-m);
-            padding: 25px 115px;
-        }
-        @media (max-width:736px) {
-            padding: 25px 100px;
-            background:url("../../assets/bg/001.jpg") 0px 110px / 100% 70% no-repeat;
-        } 
+.s{
+    font: var(--font-s);
+    padding: 10px 15px;
 }
 .m{
     padding: 23px 48px;
@@ -54,10 +62,18 @@
     @media (max-width:736px) {
         font: var(--font-s);
           padding: 20px 35px;
-         background:url("../../assets/bg/001.jpg") 0px 110px / 100% 70% no-repeat;
     }
 }
-.s{
-    font: var(--font-s);
-    padding: 10px 15px;
+.l{
+    font: var(--font-l);
+    padding: 32px 150px;
+        @media (max-width:1024px) {
+            font: var(--font-m);
+            padding: 25px 115px;
+        }
+        @media (max-width:736px) {
+            padding: 25px 100px;
+        } 
 }
+
+
