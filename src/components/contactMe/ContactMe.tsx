@@ -11,7 +11,7 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
     const { className } = props;
 
     return (
-        <div className={ }>
+        <div >
 
         </div>
     );
