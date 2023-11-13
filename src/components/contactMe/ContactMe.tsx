@@ -4,14 +4,16 @@ import styles from './ContactMe.module.scss';
 import { Headline } from '../headline/Headline';
 import Button, { Size, ThemeButton } from '../button/Button';
 import { Text, TextSize, TextTheme } from '../text/Text';
+import { useInView } from 'react-intersection-observer';
 
 
 interface ContactMeProps {
     className?: string;
+    contactRef?: any;
 }
 
 export const ContactMe: FC<ContactMeProps> = (props) => {
-    const { className } = props;
+    const { className, contactRef } = props;
     const [isDisabled, setIsDisabled] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -19,6 +21,11 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [messageError, setMessageError] = useState('');
+
+    const [ref, inView] = useInView({
+        triggerOnce: false,
+    });
+
 
     const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value;
@@ -76,9 +83,9 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
     }, [name, email, message]);
 
     return (
-        <section className={styles.contact} >
+        <section ref={contactRef} className={styles.contact} >
             <Headline className={styles.title} headline='h2'>Contact me.</Headline>
-            <form className={styles.form}>
+            <form className={styles.form} ref={ref}>
                 <div className={styles.nameInput}>
                     <label htmlFor="name">Name</label>
                     <input onChange={nameChangeHandler} onBlur={onBlurName} type="text" id='name' name='name' value={name} placeholder='enter your name' />

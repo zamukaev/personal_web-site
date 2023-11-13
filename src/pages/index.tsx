@@ -13,6 +13,7 @@ export default function Home() {
     const workRef = useRef<any>();
     const aboutRef = useRef<any>();
     const homeRef = useRef<any>();
+    const contactRef = useRef<any>();
 
 
     const scrollToSection = (section: string) => {
@@ -22,9 +23,10 @@ export default function Home() {
             workRef.current.scrollIntoView({ behavior: 'smooth' });
         } else if (section === 'about me') {
             aboutRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-        else if (section === 'home') {
+        } else if (section === 'home') {
             homeRef.current.scrollIntoView({ behavior: 'smooth' });
+        } else if (section === 'contact') {
+            contactRef.current.scrollIntoView({ behavior: 'smooth' })
         }
     };
 
@@ -36,7 +38,13 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <Header onScrollToSection={scrollToSection} homeRef={homeRef} />
-            <Main onScrollToSection={scrollToSection} skillRef={skillRef} workRef={workRef} aboutRef={aboutRef} />
+            <Main
+                onScrollToSection={scrollToSection}
+                skillRef={skillRef}
+                workRef={workRef}
+                aboutRef={aboutRef}
+                contactRef={contactRef}
+            />
             <Footer />
         </>
     )

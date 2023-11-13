@@ -18,20 +18,27 @@ interface MainProps {
     skillRef: any;
     workRef: any
     aboutRef: any;
-
+    contactRef: any;
     onScrollToSection: (section: string) => void
 }
 
-const Main: FC<MainProps> = ({ skillRef, workRef, aboutRef, onScrollToSection }) => {
+const Main: FC<MainProps> = (props) => {
+    const {
+        skillRef,
+        contactRef,
+        workRef,
+        aboutRef,
+        onScrollToSection
+    } = props;
     const { scroll, setScroll } = useScroll();
     const { width } = useResize();
     return (
         <main className={styles['page-wrapper']}>
-            <MainTop />
+            <MainTop onScrollToSection={onScrollToSection} />
             <Skill skillRef={skillRef} />
             <Works workRef={workRef} />
             <About aboutRef={aboutRef} />
-            <ContactMe />
+            <ContactMe contactRef={contactRef} />
             {scroll >= 600 && <ToTop onScrollToSection={onScrollToSection} isVisible={scroll >= 700} />}
         </main>
     );
