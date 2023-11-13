@@ -2,21 +2,30 @@ import { FC } from "react";
 
 import { db } from "../../../db/db";
 import styles from "./Navbar.module.scss";
-import { AppLink, AppLinkTheme } from "../appLink/AppLink";
+import classNames from "classnames";
+
 interface NavbarProps {
-    onScrollToSection: (section: string) => void;
+    className?: string;
+    isMounted?: boolean;
+    onScrollToSection?: (section: string) => void;
 }
-const Navbar: FC<NavbarProps> = ({ onScrollToSection }) => {
+const Navbar: FC<NavbarProps> = ({ className, isMounted, onScrollToSection }) => {
+
+    const scrollToSectionHandler = (value: string) => {
+        if (onScrollToSection) {
+            onScrollToSection(value)
+        }
+    }
 
     return (
-        <nav className={styles.navbar}>
+        <nav className={classNames(styles.navbar, { [styles.mounted]: isMounted }, className)}>
             <ul className={styles.menu}>
                 {db.navigation.map(item => (
                     <li
                         tabIndex={1}
                         key={item.content}
                         className={styles.menuItem}
-                        onClick={() => onScrollToSection(item.content)}
+                        onClick={() => scrollToSectionHandler(item.content)}
                     >
                         {item.content}
                     </li>

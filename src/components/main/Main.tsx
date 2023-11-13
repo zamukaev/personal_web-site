@@ -7,6 +7,10 @@ import Works from "../works/Works";
 import { About } from "../about/About";
 import { Portal } from "../portal/Portal";
 import { ToTop } from "../toTop/ToTop";
+import { useScroll } from "../../../hooks/useScroll";
+import { useResize } from "../../../hooks/useResize";
+import { BurgerMenu } from "../burgerMenu/BurgerMenu";
+import { ContactMe } from "../contactMe/ContactMe";
 
 
 
@@ -19,22 +23,15 @@ interface MainProps {
 }
 
 const Main: FC<MainProps> = ({ skillRef, workRef, aboutRef, onScrollToSection }) => {
-    const [scroll, setScroll] = useState<number>(0);
-    const visualViewport = () => {
-        return addEventListener("scroll", (event) => {
-            setScroll(window.scrollY);
-        })
-    };
-    useEffect(() => {
-        visualViewport();
-    }, []);
-
+    const { scroll, setScroll } = useScroll();
+    const { width } = useResize();
     return (
         <main className={styles['page-wrapper']}>
             <MainTop />
             <Skill skillRef={skillRef} />
             <Works workRef={workRef} />
             <About aboutRef={aboutRef} />
+            <ContactMe />
             {scroll >= 600 && <ToTop onScrollToSection={onScrollToSection} isVisible={scroll >= 700} />}
         </main>
     );

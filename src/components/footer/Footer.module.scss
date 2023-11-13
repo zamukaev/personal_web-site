@@ -1,8 +1,9 @@
 .footer{
-    padding: 20px 160px;
+    padding: 10px 160px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: var(--primary-text-color);
     @media (max-width:936px) {
         flex-direction: column-reverse;
         justify-content: space-around;

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
@@ -7,15 +7,23 @@ interface PortalProps {
 }
 
 export const Portal: FC<PortalProps> = (props) => {
+    const htmlElem = typeof document !== 'undefined' ? document.body : undefined
     const {
         children,
-        element = document.body
+        element = htmlElem
     } = props;
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
 
     return (
-        createPortal(
+        mounted ? createPortal(
             children,
             element
         )
+            : null
     );
 }

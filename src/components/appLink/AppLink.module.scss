@@ -18,11 +18,11 @@
     }
 }
 .primary{
-    color: var(--primary-text-color);
+    color: var(--primary-color);
     transition: color ease 0.3s;
     &:hover{
         // transition: all ease 1s;
-        color:var(--primary-color);
+        color:var(--primary-hover-color);
     }
 }
 .secondary{

@@ -1,0 +1,25 @@
+.burgerMenu{
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 50;
+        width: 160px;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        background: #00000045;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100px);
+        transition: all 0.3s ease-in;
+}
+.burgerMenu.mounted{
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+}
+ .burgerBtn{
+        position: fixed;
+        top: 100px;
+        right: 10px;
+        z-index: 60;
+    }

@@ -1,11 +1,23 @@
 .navbar{
     @media (max-width:733px) {
-     display: none;
+
     }
+}
+.navbar.mounted{
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
 }
 .menu{
     display: flex;
     justify-content: space-between;
+    height: 100%;
+     @media (max-width:733px) {
+        margin-top:170px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
 }
 .menuItem{
     cursor: pointer;
@@ -14,6 +26,13 @@
     transition: all 0.3s ease-in;
     padding:5px;
     border-radius: 2px;
+     @media (max-width:733px) {
+         margin-right: 0px;
+         margin-bottom: 60px;
+           &:last-child{
+                margin-bottom: 0px;
+            }
+     }
     &:last-child{
         margin-right: 0px;
     }
