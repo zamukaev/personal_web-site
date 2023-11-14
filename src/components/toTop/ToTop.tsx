@@ -17,13 +17,12 @@ interface ToTopProps {
 
 export const ToTop: FC<ToTopProps> = (props) => {
     const { className, isVisible, onScrollToSection } = props;
-    const doc = isUndefined('doc');
+
     return (
-        <Portal element={doc!.body}>
+        <Portal>
             <Button onClick={() => onScrollToSection('home')} className={classNames(styles.toTop, { [styles.visible]: isVisible })} theme={ThemeButton.CIRCLES} >
                 <RiArrowUpDoubleLine className={styles.arrow} />
             </Button>
         </Portal>
-
     );
 }

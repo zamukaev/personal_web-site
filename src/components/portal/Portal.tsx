@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 
 interface PortalProps {
     children: React.ReactNode;
-    element: HTMLElement;
+    element?: Element | undefined;
 }
 export const Portal: FC<PortalProps> = (props) => {
     let {
@@ -24,7 +24,7 @@ export const Portal: FC<PortalProps> = (props) => {
     return (
         mounted ? createPortal(
             children,
-            element
+            element as Element
         )
             : null
     );

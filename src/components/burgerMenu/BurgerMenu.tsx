@@ -18,10 +18,9 @@ export const BurgerMenu: FC<BurgerMenuProps> = (props) => {
         onScrollToSection,
         isMounted,
     } = props;
-    const doc = isUndefined('doc');
 
     return (
-        <Portal element={doc!.body} >
+        <Portal>
             <section className={classNames(styles.burgerMenu, { [styles.mounted]: isMounted })}>
                 <Navbar isMounted={isMounted} className={classNames({ [styles.mounted]: isMounted })} onScrollToSection={onScrollToSection} />
 
