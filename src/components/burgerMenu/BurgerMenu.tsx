@@ -4,6 +4,7 @@ import Navbar from '../navbar/Navbar';
 import classNames from 'classnames';
 import Button, { ThemeButton } from '../button/Button';
 import styles from './BurgerMenu.module.scss';
+import { isUndefined } from '@/utils/isUndefined';
 
 interface BurgerMenuProps {
     className?: string;
@@ -17,9 +18,10 @@ export const BurgerMenu: FC<BurgerMenuProps> = (props) => {
         onScrollToSection,
         isMounted,
     } = props;
+    const doc = isUndefined('doc');
 
     return (
-        <Portal>
+        <Portal element={doc!.body} >
             <section className={classNames(styles.burgerMenu, { [styles.mounted]: isMounted })}>
                 <Navbar isMounted={isMounted} className={classNames({ [styles.mounted]: isMounted })} onScrollToSection={onScrollToSection} />
 

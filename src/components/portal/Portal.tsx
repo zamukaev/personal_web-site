@@ -3,15 +3,17 @@ import { createPortal } from 'react-dom';
 
 interface PortalProps {
     children: React.ReactNode;
-    element?: HTMLElement;
+    element: HTMLElement;
 }
-
 export const Portal: FC<PortalProps> = (props) => {
-    const htmlElem = typeof document !== 'undefined' ? document.body : undefined
-    const {
+    let {
         children,
-        element = htmlElem
+        element
     } = props;
+    if (typeof document !== 'undefined') {
+        element = document.body
+    }
+
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {

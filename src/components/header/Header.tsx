@@ -20,7 +20,6 @@ const Header: FC<HeaderProps> = ({ onScrollToSection, homeRef }) => {
     const toggleBurgerMenu = () => {
         setIsMounted(prev => !prev)
     };
-    console.log(width)
     return (
         <header ref={homeRef} className={styles.header}>
             <Logo />
