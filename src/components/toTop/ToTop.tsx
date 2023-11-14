@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import { RiArrowUpDoubleLine } from 'react-icons/ri';
 import styles from './ToTop.module.scss';
 import { Portal } from '../portal/Portal';
+import { isUndefined } from '../../utils/isUndefined';
+
 
 
 interface ToTopProps {
@@ -15,9 +17,9 @@ interface ToTopProps {
 
 export const ToTop: FC<ToTopProps> = (props) => {
     const { className, isVisible, onScrollToSection } = props;
-
+    const doc = isUndefined('doc');
     return (
-        <Portal>
+        <Portal element={doc!.body}>
             <Button onClick={() => onScrollToSection('home')} className={classNames(styles.toTop, { [styles.visible]: isVisible })} theme={ThemeButton.CIRCLES} >
                 <RiArrowUpDoubleLine className={styles.arrow} />
             </Button>
