@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "POST") {

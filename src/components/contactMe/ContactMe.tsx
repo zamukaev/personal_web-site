@@ -28,8 +28,7 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
     const [ref, inView] = useInView({
         triggerOnce: false,
     });
-    const url: string = process.env.URL ? process.env.URL : '';
-
+    const url: string = process.env.NEXT_PUBLIC_URL || '';
     const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value;
         setName(value);
@@ -75,7 +74,8 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
             email,
             message
         }
-        setIsDisabled(true)
+        setIsDisabled(true);
+        setSuccessfullyMessage('Email wird gesendet...');
         const response = await axios.post(url, data)
         setSuccessfullyMessage(response.data.message);
         setName('');
@@ -96,7 +96,7 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
     return (
         <section ref={contactRef} className={styles.contact} >
             <Headline className={styles.title} headline='h2'>Contact me.</Headline>
-            <Text theme={TextTheme.PRIMARY}>{successfullyMessage}</Text>
+            <Text theme={TextTheme.INFO}>{successfullyMessage}</Text>
             <form className={styles.form} ref={ref}>
                 <div className={styles.nameInput}>
                     <label htmlFor="name">Name</label>
