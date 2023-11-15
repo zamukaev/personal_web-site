@@ -28,7 +28,7 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
     const [ref, inView] = useInView({
         triggerOnce: false,
     });
-
+    const url: string = process.env.URL ? process.env.URL : 'http://localhost:3000/api/contact-me'
 
     const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value;
@@ -76,7 +76,7 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
             message
         }
         setIsDisabled(true)
-        const response = await axios.post('http://localhost:3000/api/contact-me', data)
+        const response = await axios.post(url, data)
         setSuccessfullyMessage(response.data.message);
         setName('');
         setEmail('');
