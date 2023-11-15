@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 service: 'gmail',
                 auth: {
                     user: 'abu.safiia2016@gmail.com',
-                    pass: 'lwvi wujc jged snja',
+                    pass: process.env.EMAIL_PASS,
                 }
             });
 
@@ -121,5 +121,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         } catch (error) {
             return res.status(500)
         }
+    } else {
+        return res.status(400)
     }
 }
