@@ -121,7 +121,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         } catch (error) {
             return res.status(500)
         }
-    } else {
-        return res.status(400)
+    } else if (req.method === 'GET') {
+        return res.send('it is work')
     }
 }
