@@ -7,8 +7,8 @@ import Works from "../works/Works";
 import { About } from "../about/About";
 import { Portal } from "../portal/Portal";
 import { ToTop } from "../toTop/ToTop";
-import { useScroll } from "../../../hooks/useScroll";
-import { useResize } from "../../../hooks/useResize";
+import { useScroll } from "../../hooks/useScroll";
+import { useResize } from "../../hooks/useResize";
 import { BurgerMenu } from "../burgerMenu/BurgerMenu";
 import { ContactMe } from "../contactMe/ContactMe";
 

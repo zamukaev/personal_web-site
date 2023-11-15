@@ -1,10 +1,11 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 
 import styles from './ContactMe.module.scss';
 import { Headline } from '../headline/Headline';
 import Button, { Size, ThemeButton } from '../button/Button';
 import { Text, TextSize, TextTheme } from '../text/Text';
 import { useInView } from 'react-intersection-observer';
+import axios from 'axios';
 
 
 interface ContactMeProps {
@@ -21,6 +22,8 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [messageError, setMessageError] = useState('');
+    const [successfullyMessage, setSuccessfullyMessage] = useState('');
+    const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const [ref, inView] = useInView({
         triggerOnce: false,
@@ -66,35 +69,73 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
         setMessage(event.target.value);
     }
 
-    const formSubmit = () => {
+    const formSubmit = async () => {
         const data = {
             name,
             email,
             message
         }
-        console.log(data);
+        setIsDisabled(true)
+        const response = await axios.post('http://localhost:3000/api/contact-me', data)
+        setSuccessfullyMessage(response.data.message);
         setName('');
         setEmail('');
         setMessage('');
     }
 
     useEffect(() => {
-        setIsDisabled(name && email && message ? false : true)
-    }, [name, email, message]);
+        setIsDisabled(name && email && message ? false : true);
+        timerRef.current = setTimeout(() => {
+            setSuccessfullyMessage('');
+        }, 2000);
+        return () => {
+            clearTimeout(timerRef.current)
+        }
+    }, [name, email, message, successfullyMessage]);
 
     return (
         <section ref={contactRef} className={styles.contact} >
             <Headline className={styles.title} headline='h2'>Contact me.</Headline>
+            <Text theme={TextTheme.PRIMARY}>{successfullyMessage}</Text>
             <form className={styles.form} ref={ref}>
                 <div className={styles.nameInput}>
                     <label htmlFor="name">Name</label>
-                    <input onChange={nameChangeHandler} onBlur={onBlurName} type="text" id='name' name='name' value={name} placeholder='enter your name' />
-                    {nameError && <Text theme={TextTheme.RED} size={TextSize.M}> {nameError}</Text>}
+                    <input
+                        onChange={nameChangeHandler}
+                        onBlur={onBlurName}
+                        type="text"
+                        id='name'
+                        name='name'
+                        value={name}
+                        placeholder='enter your name'
+                    />
+                    {nameError &&
+                        <Text
+                            theme={TextTheme.RED}
+                            size={TextSize.M}
+                        >
+                            {nameError}
+                        </Text>
+                    }
                 </div>
                 <div className={styles.emailInput}>
                     <label htmlFor="email">Email</label>
-                    <input onChange={emailChangeHandler} onBlur={onBlurEmail} type="email" name='email' id='email' value={email} placeholder='enter your Email adress' />
-                    {emailError && <Text theme={TextTheme.RED} size={TextSize.M}> {emailError}</Text>}
+                    <input
+                        onChange={emailChangeHandler}
+                        onBlur={onBlurEmail}
+                        type="email"
+                        name='email'
+                        id='email'
+                        value={email}
+                        placeholder='enter your Email adress'
+                    />
+                    {emailError &&
+                        <Text
+                            theme={TextTheme.RED}
+                            size={TextSize.M}
+                        >
+                            {emailError}
+                        </Text>}
                 </div>
                 <div className={styles.messageInput}>
                     <label htmlFor="message">Message</label>
@@ -106,9 +147,24 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
                         value={message}
                         placeholder='write your message'
                     />
-                    {messageError && <Text theme={TextTheme.RED} size={TextSize.M}> {messageError}</Text>}
+                    {messageError &&
+                        <Text
+                            theme={TextTheme.RED}
+                            size={TextSize.M}
+                        >
+                            {messageError}
+                        </Text>}
                 </div>
-                <Button onClick={formSubmit} type='button' disabled={isDisabled} className={styles.btn} size={Size.M} theme={ThemeButton.OUTLINE} >send</Button>
+                <Button
+                    onClick={formSubmit}
+                    type='button'
+                    disabled={isDisabled}
+                    className={styles.btn}
+                    size={Size.M}
+                    theme={ThemeButton.OUTLINE}
+                >
+                    send
+                </Button>
             </form>
         </section >
     );

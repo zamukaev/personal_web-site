@@ -3,7 +3,7 @@ import styles from "./Header.module.scss";
 import Logo from "../logo/Logo";
 import Navbar from "../navbar/Navbar";
 import { ToTop } from "../toTop/ToTop";
-import { useResize } from "../../../hooks/useResize";
+import { useResize } from "../../hooks/useResize";
 import { BurgerMenu } from "../burgerMenu/BurgerMenu";
 import Button, { ThemeButton } from "../button/Button";
 import classNames from "classnames";

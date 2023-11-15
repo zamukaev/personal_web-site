@@ -4,10 +4,17 @@
     align-items: center;
     justify-content: space-between;
     background: var(--primary-text-color);
-    @media (max-width:936px) {
-        flex-direction: column-reverse;
-        justify-content: space-around;
-    }
+        @media (max-width:1024px) {
+            padding: 0px 60px;
+        }
+      
+        @media (max-width:936px) {
+            flex-direction: column-reverse;
+            justify-content: space-around;
+        }
+        @media (max-width:736px) {
+            padding: 0px 10px;
+        }
     .social{
         display: flex;
         align-items: center;
