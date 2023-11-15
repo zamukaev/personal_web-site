@@ -28,7 +28,7 @@ export const ContactMe: FC<ContactMeProps> = (props) => {
     const [ref, inView] = useInView({
         triggerOnce: false,
     });
-    const url: string = process.env.URL ? process.env.URL : 'http://localhost:3000/api/contact-me'
+    const url: string = process.env.URL ? process.env.URL : '';
 
     const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value;
