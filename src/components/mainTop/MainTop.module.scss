@@ -22,10 +22,9 @@
             align-items: flex-start;
             justify-content:flex-start;
             margin-top:160px;
-            @media (max-width:1024px) {
-                 align-items: flex-start;
-                 margin-top:80px;
-            }
+            // @media (max-width:786px) {
+            //      margin-top:80px;
+            // }
             .headline{
                 opacity: 0;
                 transition: all ease 1s;
