@@ -1,0 +1,19 @@
+{
+    "greeting": "Hello",
+    "name": "I'm",
+    "contact": "contact",
+    "skill": "My Skills",
+    "work": "My Work",
+    "cv_open": "Open my",
+    "enter_name": "enter your name",
+    "enter_mail": "enter your Email adress",
+    "enter_message": "write your message",
+    "message": "Message",
+    "sendBtn": "send",
+    "imprint": "imprint",
+    "protection": "data protection",
+    "sentemail": "Email is sent!",
+    "messageError": "Please write something",
+    "emailError": "Your valid Email is required",
+    "nameError": "Your Name is required"
+}

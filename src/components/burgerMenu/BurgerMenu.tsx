@@ -1,10 +1,14 @@
-import { FC, useState } from 'react'
+import { NextPage } from 'next';
+import { memo } from 'react';
+
 import { Portal } from '../portal/Portal';
 import Navbar from '../navbar/Navbar';
+import { LangSwitcher } from '../langSwitcher/LangSwitcher';
+
 import classNames from 'classnames';
-import Button, { ThemeButton } from '../button/Button';
 import styles from './BurgerMenu.module.scss';
-import { isUndefined } from '@/utils/isUndefined';
+
+
 
 interface BurgerMenuProps {
     className?: string;
@@ -12,9 +16,8 @@ interface BurgerMenuProps {
     onScrollToSection: (section: string) => void;
 }
 
-export const BurgerMenu: FC<BurgerMenuProps> = (props) => {
+const BurgerMenu: NextPage<BurgerMenuProps> = (props) => {
     const {
-        className,
         onScrollToSection,
         isMounted,
     } = props;
@@ -22,9 +25,15 @@ export const BurgerMenu: FC<BurgerMenuProps> = (props) => {
     return (
         <Portal>
             <section className={classNames(styles.burgerMenu, { [styles.mounted]: isMounted })}>
-                <Navbar isMounted={isMounted} className={classNames({ [styles.mounted]: isMounted })} onScrollToSection={onScrollToSection} />
-
+                <Navbar
+                    isMounted={isMounted}
+                    className={classNames({ [styles.mounted]: isMounted })}
+                    onScrollToSection={onScrollToSection}
+                />
+                <LangSwitcher />
             </section>
         </Portal>
     );
-} 
+}
+
+export default memo(BurgerMenu);

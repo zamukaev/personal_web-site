@@ -1,16 +1,23 @@
-import { FC } from "react";
-import classNames from "classnames";
+import { NextPage } from "next";
+import { memo } from "react";
+import { useTranslation } from "next-i18next";
 
-import { Headline, HeadlineSize } from "../headline/Headline";
-import { SkillsItem } from "./skillsItem/SkillsItem";
+import { Headline, HeadlineSize } from "@/components/headline/Headline";
+import SkillsItem from "./skillsItem/SkillsItem";
 
 import { db } from "../../../db/db";
 
+import classNames from "classnames";
 import styles from "./Skills.module.scss";
+
+
 interface SkillsProps {
-    skillRef: any
+    locale?: string;
+    skillRef: any;
 }
-const Skill: FC<SkillsProps> = ({ skillRef }) => {
+
+const Skill: NextPage<SkillsProps> = ({ skillRef }) => {
+    const { t } = useTranslation()
     return (
         <section ref={skillRef} className={styles.skill}>
             <Headline
@@ -18,10 +25,10 @@ const Skill: FC<SkillsProps> = ({ skillRef }) => {
                 size={HeadlineSize.M}
                 className={styles.headline}
             >
-                MY Skills
+                {t('skill')}
             </Headline>
             <ul className={classNames(styles.skillsList)}>
-                {db.skills.map((skill) => (
+                {db.de.skills.map((skill) => (
                     <SkillsItem
                         key={skill.text}
                         icon={skill.icon}
@@ -33,4 +40,4 @@ const Skill: FC<SkillsProps> = ({ skillRef }) => {
     );
 }
 
-export default Skill;
+export default memo(Skill);

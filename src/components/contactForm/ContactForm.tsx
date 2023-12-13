@@ -1,20 +1,22 @@
-import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
+import { NextPage } from 'next';
+import { ChangeEvent, memo, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useInView } from 'react-intersection-observer';
 
 import { Text, TextSize, TextTheme } from '../text/Text';
 import Button, { Size, ThemeButton } from '../button/Button';
 
-import { useInView } from 'react-intersection-observer';
 import axios from 'axios';
 
-import styles from './ContactForm.module.scss';
 import classNames from 'classnames';
+import styles from './ContactForm.module.scss';
 
 interface ContactFormProps {
     className?: string;
+    locale?: string;
 }
 
-export const ContactForm: FC<ContactFormProps> = (props) => {
-    const { className } = props;
+const ContactForm: NextPage<ContactFormProps> = (props) => {
     const [isDisabled, setIsDisabled] = useState(true);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -23,12 +25,16 @@ export const ContactForm: FC<ContactFormProps> = (props) => {
     const [emailError, setEmailError] = useState('');
     const [messageError, setMessageError] = useState('');
     const [successfullyMessage, setSuccessfullyMessage] = useState('');
+
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const url: string = process.env.NEXT_PUBLIC_URL || '';
+    const { t } = useTranslation();
+
     const [ref, inView] = useInView({
         triggerOnce: false,
     });
-    const url: string = process.env.NEXT_PUBLIC_URL || '';
+
     const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value;
         setName(value);
@@ -36,7 +42,7 @@ export const ContactForm: FC<ContactFormProps> = (props) => {
 
     const onBlurName = () => {
         if (!name.trim() || name.length <= 3) {
-            setNameError('Your Name is required')
+            setNameError(t('nameError'))
         }
         else {
             setNameError('')
@@ -45,17 +51,17 @@ export const ContactForm: FC<ContactFormProps> = (props) => {
     const onBlurEmail = () => {
 
         if (!email.trim() || email.length <= 10) {
-            setEmailError('Your valid Email is required')
+            setEmailError(t('emailError'))
         }
         if (!emailRegex.test(email)) {
-            setEmailError('Your valid Email is required')
+            setEmailError(t('emailError'))
         } else {
             setEmailError('')
         }
     }
     const onBlurMessage = () => {
         if (!message.trim() || message.length <= 10) {
-            setMessageError('Please write something')
+            setMessageError(t('messageError'))
         } else {
             setMessageError('');
         }
@@ -75,7 +81,7 @@ export const ContactForm: FC<ContactFormProps> = (props) => {
             message
         }
         setIsDisabled(true);
-        setSuccessfullyMessage('Email wird gesendet...');
+        setSuccessfullyMessage(t('sentemail'));
         const response = await axios.post(url, data)
         setSuccessfullyMessage(response.data.message);
         setName('');
@@ -113,7 +119,7 @@ export const ContactForm: FC<ContactFormProps> = (props) => {
                         id='name'
                         name='name'
                         value={name}
-                        placeholder='enter your name'
+                        placeholder={t('enter_name')}
                     />
                     {nameError &&
                         <Text
@@ -133,7 +139,7 @@ export const ContactForm: FC<ContactFormProps> = (props) => {
                         name='email'
                         id='email'
                         value={email}
-                        placeholder='enter your Email adress'
+                        placeholder={t('enter_mail')}
                     />
                     {emailError &&
                         <Text
@@ -144,14 +150,14 @@ export const ContactForm: FC<ContactFormProps> = (props) => {
                         </Text>}
                 </div>
                 <div className={styles.messageInput}>
-                    <label htmlFor="message">Message</label>
+                    <label htmlFor="message">{t('message')}</label>
                     <textarea
                         onChange={messageChangeHandler}
                         onBlur={onBlurMessage}
                         name="message"
                         id="message"
                         value={message}
-                        placeholder='write your message'
+                        placeholder={t('enter_message')}
                     />
                     {messageError &&
                         <Text
@@ -169,9 +175,11 @@ export const ContactForm: FC<ContactFormProps> = (props) => {
                     size={Size.M}
                     theme={ThemeButton.OUTLINE}
                 >
-                    send
+                    {t('sendBtn')}
                 </Button>
             </form>
         </>
     );
-}
+};
+
+export default memo(ContactForm);

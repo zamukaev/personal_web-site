@@ -1,16 +1,18 @@
-import { FC } from "react";
+import { NextPage } from 'next';
 import { BsCodeSlash } from 'react-icons/bs';
 
-import styles from "./Logo.module.scss";
 import { AppLink, AppLinkTheme } from "../appLink/AppLink";
-interface LogoProps {
 
-}
+import styles from "./Logo.module.scss";
 
-const Logo: FC<LogoProps> = () => {
+const Logo: NextPage = () => {
     return (
         <AppLink href="/" theme={AppLinkTheme.CLEAR} className={styles.logo}>
-            <BsCodeSlash size={40} fontWeight="bold" /> <h2 className={styles.name}>Muslim Zamukaev</h2>
+            <BsCodeSlash
+                size={40}
+                fontWeight="bold"
+            />
+            <h2 className={styles.name}>Muslim Zamukaev</h2>
         </AppLink >
     );
 }

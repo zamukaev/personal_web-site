@@ -1,11 +1,15 @@
-import { FC } from 'react'
-import { useInView } from 'react-intersection-observer';
-import classNames from 'classnames';
-import { Headline, HeadlineSize } from '@/components/headline/Headline';
-import { Text, TextSize } from '../../text/Text';
+import { NextPage } from 'next';
 import Image from 'next/image';
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useInView } from 'react-intersection-observer';
 
+import { Headline, HeadlineSize } from '@/components/headline/Headline';
+import { Text, TextSize } from '@/components/text/Text';
+
+import classNames from 'classnames';
 import styles from './AboutMe.module.scss';
+
 
 interface AboutMeProps {
     className?: string;
@@ -13,17 +17,18 @@ interface AboutMeProps {
     title: string;
     text: string;
     cv: string;
+    locale?: string;
 }
 
-export const AboutMe: FC<AboutMeProps> = (props) => {
+const AboutMe: NextPage<AboutMeProps> = (props) => {
     const {
-        className,
         title,
         text,
         image,
-        cv
+        cv,
     } = props;
 
+    const { t } = useTranslation();
     const [ref, inView] = useInView({
         triggerOnce: false,
     });
@@ -50,10 +55,12 @@ export const AboutMe: FC<AboutMeProps> = (props) => {
                     size={TextSize.M}
                     className={styles.secondText}
                 >
-                    Öffnen sie meinen
+                    {t('cv_open')}
                     <a href={cv} target='_blank'><span className={styles.cv}> CV</span> </a>
                 </Text>
             </div>
         </div>
     );
 }
+
+export default memo(AboutMe)

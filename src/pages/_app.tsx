@@ -1,8 +1,12 @@
-import Layout from '../components/layout/Layout';
-
-import '@/styles/globals.scss';
+import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import { Roboto } from 'next/font/google';
+import { useState, useEffect } from 'react';
+
+import Layout from '@/components/layout/Layout';
+import { Loader } from '@/components/loader/Loader';
+
+import '@/styles/globals.scss';
 
 const roboto = Roboto({
     weight: ['400', '500', '700'],
@@ -12,6 +16,16 @@ const roboto = Roboto({
 })
 
 function App({ Component, pageProps }: AppProps) {
+
+    const [isClient, setIsClient] = useState(false);
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return <Loader />
+    }
+
     return (
         <Layout className={roboto.className} >
             <Component {...pageProps} />
@@ -19,4 +33,4 @@ function App({ Component, pageProps }: AppProps) {
     )
 }
 
-export default App;
+export default appWithTranslation(App);

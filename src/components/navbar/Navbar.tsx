@@ -1,16 +1,20 @@
-import { FC } from "react";
+import { NextPage } from "next";
+import { memo } from "react";
 
 import { db } from "../../../db/db";
-import styles from "./Navbar.module.scss";
+
 import classNames from "classnames";
+import styles from "./Navbar.module.scss";
+
 
 interface NavbarProps {
     className?: string;
     isMounted?: boolean;
+    locale?: string;
     onScrollToSection?: (section: string) => void;
 }
-const Navbar: FC<NavbarProps> = ({ className, isMounted, onScrollToSection }) => {
 
+const Navbar: NextPage<NavbarProps> = ({ className, locale, isMounted, onScrollToSection }) => {
     const scrollToSectionHandler = (value: string) => {
         if (onScrollToSection) {
             onScrollToSection(value)
@@ -20,12 +24,12 @@ const Navbar: FC<NavbarProps> = ({ className, isMounted, onScrollToSection }) =>
     return (
         <nav className={classNames(styles.navbar, { [styles.mounted]: isMounted }, className)}>
             <ul className={styles.menu}>
-                {db.navigation.map(item => (
+                {db[locale === "de" ? "de" : "en"].navigation.map(item => (
                     <li
                         tabIndex={1}
-                        key={item.content}
+                        key={item.id}
                         className={styles.menuItem}
-                        onClick={() => scrollToSectionHandler(item.content)}
+                        onClick={() => scrollToSectionHandler(item.id)}
                     >
                         {item.content}
                     </li>
@@ -35,4 +39,4 @@ const Navbar: FC<NavbarProps> = ({ className, isMounted, onScrollToSection }) =>
     );
 }
 
-export default Navbar;
+export default memo(Navbar);

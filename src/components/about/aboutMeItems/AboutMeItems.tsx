@@ -1,24 +1,21 @@
-import { FC } from 'react';
+import { NextPage } from 'next';
 import { useInView } from 'react-intersection-observer';
-import classNames from 'classnames';
 
 import { Headline, HeadlineSize } from '@/components/headline/Headline';
 import { TextSize, Text } from '../../text/Text';
 
+import { AboutItem } from '../../../../db/types';
+
+import classNames from 'classnames';
 import styles from './AboutMeItems.module.scss';
-import { AboutItem } from '../About';
+import { memo } from 'react';
 
 interface AboutMeItemsProps {
     className?: string;
     aboutMeItem: AboutItem[],
 }
 
-export const AboutMeItems: FC<AboutMeItemsProps> = (props) => {
-    const {
-        className,
-        aboutMeItem,
-    } = props;
-
+const AboutMeItems: NextPage<AboutMeItemsProps> = ({ aboutMeItem }) => {
     const [ref, inView] = useInView({
         triggerOnce: false,
     });
@@ -46,3 +43,5 @@ export const AboutMeItems: FC<AboutMeItemsProps> = (props) => {
         </ul >
     );
 }
+
+export default memo(AboutMeItems)

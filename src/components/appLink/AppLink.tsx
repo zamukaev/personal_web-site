@@ -1,10 +1,8 @@
-import { FC } from 'react'
-
-import styles from './AppLink.module.scss';
+import { NextPage } from 'next';
 import Link, { LinkProps } from 'next/link';
+
 import classNames from 'classnames';
-
-
+import styles from './AppLink.module.scss';
 
 export enum AppLinkTheme {
     OUTLINE_BTN = 'outline',
@@ -12,11 +10,13 @@ export enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
 }
+
 export enum AppLinkSize {
     L = 'l',
     M = 'm',
     S = 's',
 }
+
 interface AppLinkProps extends LinkProps {
     className?: string;
     blank?: boolean;
@@ -25,7 +25,7 @@ interface AppLinkProps extends LinkProps {
     theme?: AppLinkTheme
 }
 
-export const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink: NextPage<AppLinkProps> = (props) => {
     const {
         className,
         children,

@@ -8,13 +8,13 @@
     color: var(--primary-text-color);
 }
 .outline{
-    border: 2px solid rgb(128,0,0); 
-    color: rgb(128,0,0);
+    border: 2px solid var(--red-dark); 
+    color: var(--red-dark); 
     border-radius: 5px;
     transition: all ease-in 0.3s;
     &:hover{
-       background: rgb(128,0,0);
-       color: #ffff;
+       background: var(--red-dark);
+       color: var(--primary-text-color);
     }
 }
 .primary{

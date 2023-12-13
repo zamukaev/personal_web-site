@@ -1,14 +1,15 @@
-import { FC, } from 'react';
+import { NextPage } from 'next';
+import { memo } from 'react';
 import Image from 'next/image';
 
 import { useInView } from 'react-intersection-observer';
-import classNames from 'classnames';
 
 import { Headline, HeadlineSize } from '@/components/headline/Headline';
 import { AppLink, AppLinkTheme, AppLinkSize } from '@/components/appLink/AppLink'
 
 import { Work } from '../../../../db/types';
 
+import classNames from 'classnames';
 import styles from './WorksItem.module.scss';
 
 interface WorksItemProps extends Omit<Work, 'category'> {
@@ -16,7 +17,7 @@ interface WorksItemProps extends Omit<Work, 'category'> {
 
 }
 
-export const WorksItem: FC<WorksItemProps> = (props) => {
+const WorksItem: NextPage<WorksItemProps> = (props) => {
     const {
         className,
         title,
@@ -65,3 +66,4 @@ export const WorksItem: FC<WorksItemProps> = (props) => {
         </div>
     );
 }
+export default memo(WorksItem);

@@ -43,8 +43,8 @@
         margin-top: 20px;
         margin-left: auto;
         &:disabled{
-            color: rgb(6, 163, 163);
-            border:2px solid rgb(6, 163, 163);
+            color: var(--disabled-color);
+            border:2px solid var(--disabled-color);
             &:hover{
                 box-shadow: none;
             }
@@ -58,7 +58,7 @@
     margin-bottom: 15px;
     transform: translateX(-1000px);
     opacity: 0;
-    transition: all ease 1s;
+    transition: all ease-in 1s;
 }
 .emailInput{
     display: flex;
@@ -66,19 +66,19 @@
     margin-bottom: 15px;
     transform: translateX(1000px);
     opacity: 0;
-    transition: all ease 1s;
+    transition: all ease-in 1s;
 }
 .messageInput{
     display: flex;
     flex-direction: column;
     transform: translateX(-1000px);
     opacity: 0;
-    transition: all ease 1s;
+    transition: all ease-in 1s;
 }
 .btn{
     transform: translateX(1000px);
     opacity: 0;
-    transition: all ease 1s;
+    transition: all ease-in 1s;
 }
 
 .form.mounted{

@@ -1,7 +1,8 @@
-import { FC, ReactNode } from 'react'
+import { NextPage } from 'next';
+import { ReactNode } from 'react'
 
-import styles from './Text.module.scss';
 import classNames from 'classnames';
+import styles from './Text.module.scss';
 
 export enum TextTheme {
     PRIMARY = 'primary',
@@ -9,6 +10,7 @@ export enum TextTheme {
     RED = 'red',
     INFO = 'info'
 }
+
 export enum TextSize {
     M = 'm',
     L = 'l',
@@ -22,7 +24,7 @@ interface TextProps {
     children?: ReactNode;
 }
 
-export const Text: FC<TextProps> = (props) => {
+export const Text: NextPage<TextProps> = (props) => {
     const {
         className,
         children,

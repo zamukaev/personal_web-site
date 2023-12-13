@@ -1,6 +1,7 @@
-import classNames from "classnames";
-import { ButtonHTMLAttributes, FC } from "react";
+import { NextPage } from "next";
+import { ButtonHTMLAttributes } from "react";
 
+import classNames from "classnames";
 import styles from "./Button.module.scss";
 
 export enum ThemeButton {
@@ -22,7 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: Size;
 }
 
-const Button: FC<ButtonProps> = (props) => {
+const Button: NextPage<ButtonProps> = (props) => {
     const {
         className,
         theme = ThemeButton.CLEAR,

@@ -26,23 +26,29 @@
     transition: all 0.3s ease-in;
     padding:5px;
     border-radius: 2px;
-     @media (max-width:733px) {
-         margin-right: 0px;
-         margin-bottom: 60px;
-           &:last-child{
-                margin-bottom: 0px;
-            }
-     }
-    &:last-child{
-        margin-right: 0px;
-    }
     @media (max-width:1064px) {
        margin-right: 29px;
-    }
-    &:hover{
-        background: #2fb1cf;
     }
     @media (max-width:833px) {
         margin-right: 12px;
     }
+    @media (max-width:733px) {
+         margin-right: 0px;
+         margin-bottom: 60px;
+         &:last-child{
+            margin-bottom: 100px;
+        }
+     }
+  
+    @media (hover:hover) {
+        &:hover{
+            background: var(--primary-color);
+        } 
+    }
+    @media (hover:none) {
+        &:active{
+            background: var(--primary-color);
+        } 
+    }
+  
 }

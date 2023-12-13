@@ -1,12 +1,12 @@
-import { FC } from 'react'
-
-import Button, { Size, ThemeButton } from '../button/Button';
-import classNames from 'classnames';
+import { NextPage } from 'next';
+import { memo } from 'react';
 import { RiArrowUpDoubleLine } from 'react-icons/ri';
-import styles from './ToTop.module.scss';
-import { Portal } from '../portal/Portal';
-import { isUndefined } from '../../utils/isUndefined';
 
+import Button, { ThemeButton } from '@/components/button/Button';
+import { Portal } from '@/components/portal/Portal';
+
+import classNames from 'classnames';
+import styles from './ToTop.module.scss';
 
 
 interface ToTopProps {
@@ -15,8 +15,8 @@ interface ToTopProps {
     onScrollToSection: (section: string) => void;
 }
 
-export const ToTop: FC<ToTopProps> = (props) => {
-    const { className, isVisible, onScrollToSection } = props;
+const ToTop: NextPage<ToTopProps> = (props) => {
+    const { isVisible, onScrollToSection } = props;
 
     return (
         <Portal>
@@ -26,3 +26,5 @@ export const ToTop: FC<ToTopProps> = (props) => {
         </Portal>
     );
 }
+
+export default memo(ToTop);

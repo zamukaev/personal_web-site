@@ -39,7 +39,7 @@
      border-radius: 10px; 
 }
 .outlineRed{
-    border: 2px solid rgb(128,0,0); 
+    border: 2px solid var(--red-dark); 
     color: var(--primary-text-color);
     border-radius: 10px; 
      background: none;
@@ -79,10 +79,10 @@
 }
 .l{
     font: var(--font-l);
-    padding: 32px 150px;
+    padding: 32px 120px;
         @media (max-width:1024px) {
             font: var(--font-m);
-            padding: 25px 115px;
+            padding: 25px 110px;
         }
         @media (max-width:736px) {
             padding: 25px 100px;

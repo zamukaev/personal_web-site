@@ -35,24 +35,24 @@
         background: #ffffffd2;
         opacity: 0;
         visibility: hidden;
-        transition: all ease-in 1s;
+        transition: all ease 1s;
         .paragraph{
         text-align: center;
-            color: black;
+            color: var(--black-color);
         }
     }
       &:hover{
         .overlay{
-            transition: all ease-in 1s;
+            transition: all ease 1s;
             opacity: 1;
             visibility: visible; 
-            box-shadow:0px 0px 9px 2px #2fb1cf;
+            box-shadow:0px 0px 9px 2px var(--primary-color);
         }
              
         }
     .headline{
         align-self: center;
-        color: rgb(128,0,0);
+        color: var(--red-dark);
     }
 }
 .mounted{

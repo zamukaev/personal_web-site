@@ -1,6 +1,6 @@
 
 .headline{
-    color: #FFF;
+    color: var(--primary-text-color);
     font-family: var(--font-family-main);
 }
 .s{
@@ -32,10 +32,13 @@
 .l{
      font-size: 65px;
      font-weight: 700;
-     @media (max-width:1024px) {
-        font-size: 45px;
+     @media (max-width:910px) {
+         font-size: 50px;
      }
      @media (max-width:736px) {
         font-size: 35px;
+     } 
+     @media (max-width:450px) {
+        font-size: 30px;
      } 
 }

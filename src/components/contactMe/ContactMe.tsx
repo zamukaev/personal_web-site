@@ -1,21 +1,34 @@
-import { FC } from 'react'
+import { NextPage } from 'next';
+import { useTranslation } from 'next-i18next';
+
 import { Headline } from '../headline/Headline';
-import { ContactForm } from '../contactForm/ContactForm';
+import ContactForm from '../contactForm/ContactForm';
 
 import styles from './ContactMe.module.scss';
+import { memo } from 'react';
 
 interface ContactMeProps {
     className?: string;
     contactRef?: any;
+    locale?: string;
 }
 
-export const ContactMe: FC<ContactMeProps> = (props) => {
-    const { className, contactRef } = props;
+const ContactMe: NextPage<ContactMeProps> = (props) => {
+    const { contactRef, locale } = props;
+    const { t } = useTranslation();
 
     return (
         <section ref={contactRef} className={styles.contact} >
-            <Headline className={styles.title} headline='h2'>Contact me.</Headline>
-            <ContactForm />
+            <Headline
+                className={styles.title}
+                headline='h2'
+            >
+                {t('contact')}
+                <span className={styles.dot}>.</span>
+            </Headline>
+            <ContactForm locale={locale} />
         </section >
     );
 }
+
+export default memo(ContactMe);

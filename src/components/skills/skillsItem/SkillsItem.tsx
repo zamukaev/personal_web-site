@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { NextPage } from 'next';
+import { memo } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import classNames from 'classnames';
-
 import styles from './SkillsItem.module.scss';
+
 
 interface SkillsItemProps {
     className?: string;
@@ -11,13 +12,12 @@ interface SkillsItemProps {
     text?: string;
 }
 
-export const SkillsItem: FC<SkillsItemProps> = (props) => {
+const SkillsItem: NextPage<SkillsItemProps> = (props) => {
     const [ref, inView] = useInView({
         triggerOnce: false,
     });
 
     const {
-        className,
         icon,
         text
     } = props;
@@ -35,3 +35,4 @@ export const SkillsItem: FC<SkillsItemProps> = (props) => {
         </li>
     );
 }
+export default memo(SkillsItem)

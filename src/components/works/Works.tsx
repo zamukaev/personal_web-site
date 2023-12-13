@@ -1,18 +1,21 @@
-import { FC, useCallback, useState } from "react";
-import classNames from "classnames";
+import { NextPage } from "next";
+import { memo, useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useInView } from 'react-intersection-observer';
 
-import { Headline, HeadlineSize } from "../headline/Headline";
-import { WorksItem } from "./worksItem/WorksItem";
-import Button, { Size, ThemeButton } from "../button/Button";
+import { Headline, HeadlineSize } from "@/components/headline/Headline";
+import Button, { Size, ThemeButton } from "@/components/button/Button";
+import WorksItem from "./worksItem/WorksItem";
 
 import { db } from "../../../db/db";
 import { Work } from "../../../db/types";
 
+import classNames from "classnames";
 import styles from "./Works.module.scss";
 
 interface WorksProps {
     workRef: any;
+    locale?: string;
 }
 
 interface Tabs {
@@ -21,13 +24,15 @@ interface Tabs {
     category: string;
 }
 
-const Works: FC<WorksProps> = ({ workRef }) => {
+const Works: NextPage<WorksProps> = ({ workRef }) => {
     const [tabIndex, setTabIndex] = useState(0);
     const [category, setCategory] = useState('');
+    const { t } = useTranslation();
+
     const [ref, inView] = useInView({
         triggerOnce: false,
     });
-    let worksListToDisplay = db.works;
+    let worksListToDisplay = db.de.works;
 
     const tabSelectedHandler = (id: number, category: string) => {
         setTabIndex(id);
@@ -35,7 +40,7 @@ const Works: FC<WorksProps> = ({ workRef }) => {
     }
 
     if (category) {
-        worksListToDisplay = db.works.filter((work: Work) => work.category.includes(category));
+        worksListToDisplay = db.de.works.filter((work: Work) => work.category.includes(category));
     }
 
     const renderWorksList = useCallback(() => {
@@ -59,10 +64,10 @@ const Works: FC<WorksProps> = ({ workRef }) => {
                 size={HeadlineSize.M}
                 className={classNames(styles.headline)}
             >
-                My Work
+                {t('work')}
             </Headline>
             <ul ref={ref} className={classNames(styles.tabs)}>
-                {db.tabs.map((tab: Tabs, index: number) =>
+                {db.de.tabs.map((tab: Tabs, index: number) =>
                     <li
                         key={tab.id}
                         className={classNames(styles.tab, { [styles.active]: tabIndex == index })}
@@ -85,4 +90,4 @@ const Works: FC<WorksProps> = ({ workRef }) => {
     );
 }
 
-export default Works;
+export default memo(Works);

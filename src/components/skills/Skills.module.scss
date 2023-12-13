@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     // align-items: center;
-    background: #1A1A1A;
+    background: var(--black-color);
     padding: 40px 160px;
     @media (max-width:1024px) {
         padding: 20px 60px;
@@ -30,8 +30,8 @@
     }
     .skillsList.mounted{
         &:first-child{
-            color:red;
-            background: red;
+            color:var(--red-dark);
+            background: var(--red-dark);
         }
     }
 }

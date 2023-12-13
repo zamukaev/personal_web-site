@@ -1,0 +1,19 @@
+{
+    "greeting": "Hallo",
+    "name": "Ich bin",
+    "contact": "Kontakt",
+    "skill": "Meine Fähigkeiten",
+    "work": "Meine Projekte",
+    "cv_open": "öffnen Sie mein",
+    "enter_name": "geben Sie Ihre Name ein",
+    "enter_mail": "geben Sie Ihre Email ein",
+    "enter_message": "schreiben Sie Ihre Nachricht hier",
+    "message": "Nachricht",
+    "sendBtn": "abschicken",
+    "imprint": "impressum",
+    "protection": "Datenschutz",
+    "sentemail": "Email wird gesendet!",
+    "messageError": "Bitte schreiben Sie etwas",
+    "emailError": "Ihre gültige E-Mail-Adresse ist erforderlich",
+    "nameError": "Ihr Name ist erforderlich"
+}

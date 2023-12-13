@@ -1,15 +1,17 @@
-import { FC, useEffect, useState } from 'react'
+import { NextPage } from 'next';
+import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
     children: React.ReactNode;
     element?: Element | undefined;
 }
-export const Portal: FC<PortalProps> = (props) => {
+export const Portal: NextPage<PortalProps> = (props) => {
     let {
         children,
         element
     } = props;
+
     if (typeof document !== 'undefined') {
         element = document.body
     }
@@ -18,8 +20,7 @@ export const Portal: FC<PortalProps> = (props) => {
 
     useEffect(() => {
         setMounted(true)
-    }, [])
-
+    }, []);
 
     return (
         mounted ? createPortal(
