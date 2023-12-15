@@ -18,8 +18,8 @@ export const Footer: NextPage<FooterProps> = (props) => {
     return (
         <footer className={styles.footer}>
             <section className={styles.infos}>
-                <AppLink href='' theme={AppLinkTheme.PRIMARY}>{t('imprint')}</AppLink>
-                <AppLink href='' theme={AppLinkTheme.PRIMARY}>{t('protection')}</AppLink>
+                <AppLink href='/imprint' theme={AppLinkTheme.PRIMARY}>{t('imprint')}</AppLink>
+                <AppLink href='/legal_notice' theme={AppLinkTheme.PRIMARY}>{t('protection')}</AppLink>
             </section>
             <section className={styles.social}>
                 <AppLink

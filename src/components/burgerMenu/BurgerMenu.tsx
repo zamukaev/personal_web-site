@@ -3,7 +3,7 @@ import { memo } from 'react';
 
 import { Portal } from '../portal/Portal';
 import Navbar from '../navbar/Navbar';
-import { LangSwitcher } from '../langSwitcher/LangSwitcher';
+import LangSwitcher from '../langSwitcher/LangSwitcher';
 
 import classNames from 'classnames';
 import styles from './BurgerMenu.module.scss';

@@ -22,7 +22,9 @@ interface AppLinkProps extends LinkProps {
     blank?: boolean;
     children?: React.ReactNode;
     size?: AppLinkSize;
-    theme?: AppLinkTheme
+    theme?: AppLinkTheme;
+    rel?: string;
+
 }
 
 export const AppLink: NextPage<AppLinkProps> = (props) => {

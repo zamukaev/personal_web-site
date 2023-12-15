@@ -1,4 +1,5 @@
-import WorkImage from "../src/assets/works/blog.png";
+import blog from "../src/assets/works/blog.png";
+import personal from "../src/assets/works/personal.png";
 import NodeJs from "../src/assets/icons/node.svg"
 import ReactJs from "../src/assets/icons/react.svg";
 import Npm from "../src/assets/icons/npm.svg";
@@ -66,11 +67,11 @@ export const db: IDb = {
         works: [
             {
                 id: '1h4u62',
-                title: 'Blog',
-                text: 'Next.js basierte Web-App (Blog-Plattform)',
-                gitHubLink: 'https://github.com/zamukaev/capstone-project',
-                pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-                image: WorkImage,
+                title: 'Personal Website',
+                text: 'Next.js basierte Web-App (Personal Website)',
+                gitHubLink: 'https://github.com/zamukaev/personal_web-site',
+                pageLink: 'https://personal-web-site-zamukaev.vercel.app/',
+                image: personal,
                 category: 'next.js'
             },
             {
@@ -79,7 +80,7 @@ export const db: IDb = {
                 text: 'Next.js basierte Web-App (Blog-Plattform)',
                 gitHubLink: 'https://github.com/zamukaev/capstone-project',
                 pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-                image: WorkImage,
+                image: blog,
                 category: 'react.js'
             },
             {
@@ -88,7 +89,7 @@ export const db: IDb = {
                 text: 'Next.js basierte Web-App (Blog-Plattform)',
                 gitHubLink: 'https://github.com/zamukaev/capstone-project',
                 pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-                image: WorkImage,
+                image: blog,
                 category: 'next.js'
             },
             {
@@ -97,7 +98,7 @@ export const db: IDb = {
                 text: 'Next.js basierte Web-App (Blog-Plattform)',
                 gitHubLink: 'https://github.com/zamukaev/capstone-project',
                 pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-                image: WorkImage,
+                image: blog,
                 category: 'next.js'
             },
         ],
@@ -111,7 +112,7 @@ export const db: IDb = {
                 icon: Ts,
             },
             {
-                text: "React",
+                text: "React / Next.js",
                 icon: ReactJs,
             },
             {
@@ -204,11 +205,11 @@ export const db: IDb = {
         works: [
             {
                 id: '1h4u62',
-                title: 'Blog',
-                text: 'Next.js based wep-app(Blog platform)',
-                gitHubLink: 'https://github.com/zamukaev/capstone-project',
-                pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-                image: WorkImage,
+                title: 'Personal Website',
+                text: 'Next.js based wep-app(Personal Website)',
+                gitHubLink: 'https://github.com/zamukaev/personal_web-site',
+                pageLink: 'https://personal-web-site-zamukaev.vercel.app/',
+                image: personal,
                 category: 'next.js'
             },
             {
@@ -217,7 +218,7 @@ export const db: IDb = {
                 text: 'Next.js based wep-app(Blog platform)',
                 gitHubLink: 'https://github.com/zamukaev/capstone-project',
                 pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-                image: WorkImage,
+                image: blog,
                 category: 'react.js'
             },
             {
@@ -226,7 +227,7 @@ export const db: IDb = {
                 text: 'Next.js based wep-app(Blog platform)',
                 gitHubLink: 'https://github.com/zamukaev/capstone-project',
                 pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-                image: WorkImage,
+                image: blog,
                 category: 'next.js'
             },
             {
@@ -235,7 +236,7 @@ export const db: IDb = {
                 text: 'Next.js based wep-app(Blog platform)',
                 gitHubLink: 'https://github.com/zamukaev/capstone-project',
                 pageLink: 'https://capstone-project-zamukaev.vercel.app/login',
-                image: WorkImage,
+                image: blog,
                 category: 'next.js'
             },
         ],
@@ -249,7 +250,7 @@ export const db: IDb = {
                 icon: Ts,
             },
             {
-                text: "React",
+                text: "React / Next.js",
                 icon: ReactJs,
             },
             {

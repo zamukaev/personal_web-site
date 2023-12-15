@@ -1,0 +1,14 @@
+.imprint{
+    min-height: 100vh;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin:200px 160px 0 160px;
+    .imprintTop{
+        margin-bottom: 50px;
+    }
+    .title,.subtitle{
+        margin-bottom: 20px;
+    }
+}

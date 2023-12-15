@@ -5,7 +5,7 @@
     height:calc(100vh) ;
     padding: 0px 160px;
     background:url("../../assets/bg/001.jpg") 0px 0px / 100% 100% no-repeat;
-        @media (max-width:1120px) {
+        @media (max-width:1200px) {
             padding: 0px 100px;
         }
         @media (max-width:1024px) {
@@ -22,17 +22,11 @@
             align-items: flex-start;
             justify-content:flex-start;
             margin-top:160px;
-            // @media (max-width:786px) {
-            //      margin-top:80px;
-            // }
             .headline{
                 opacity: 0;
                 transition: all ease 1s;
                 transform: translateX(-1000px);
                  margin-bottom: 100px;
-                // @media (max-width:1024px) {
-                //     margin-bottom: 80px;
-                // }
                 .name{
                     margin-left: 10px;
                     color:var(--red-dark);

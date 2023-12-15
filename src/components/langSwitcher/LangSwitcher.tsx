@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { memo } from 'react';
 
 import Button, { ThemeButton } from '../button/Button';
 
@@ -9,11 +10,12 @@ import En from '../../assets/icons/en.png';
 
 import styles from './LangSwitcher.module.scss';
 
+
 interface LangSwitcherProps {
     className?: string;
 }
 
-export const LangSwitcher: NextPage<LangSwitcherProps> = () => {
+const LangSwitcher: NextPage<LangSwitcherProps> = () => {
     const router = useRouter();
 
     const changeLangHandler = (value: string) => {
@@ -44,3 +46,5 @@ export const LangSwitcher: NextPage<LangSwitcherProps> = () => {
         </section>
     );
 }
+
+export default memo(LangSwitcher);

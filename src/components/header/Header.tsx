@@ -1,10 +1,10 @@
 import { NextPage } from "next";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 import Navbar from "@/components/navbar/Navbar";
 import BurgerMenu from "@/components/burgerMenu/BurgerMenu";
 import Button, { ThemeButton } from "@/components/button/Button";
-import { LangSwitcher } from "@/components/langSwitcher/LangSwitcher";
+import LangSwitcher from "@/components/langSwitcher/LangSwitcher";
 import Logo from "../logo/Logo";
 
 import { useResize } from "../../hooks/useResize";
@@ -27,17 +27,17 @@ const Header: NextPage<HeaderProps> = ({ onScrollToSection, locale, homeRef }) =
     return (
         <header ref={homeRef} className={styles.header}>
             <Logo />
-            {width >= 733 && <Navbar onScrollToSection={onScrollToSection} locale={locale} />}
-            {width <= 733 && <BurgerMenu isMounted={isMounted} onScrollToSection={onScrollToSection} />}
-            {width <= 733 && (
+            {width >= 1024 && <Navbar onScrollToSection={onScrollToSection} />}
+            {width <= 1024 && <BurgerMenu isMounted={isMounted} onScrollToSection={onScrollToSection} />}
+            {width <= 1024 && (
                 <Button className={classNames(styles.btn, { [styles.visible]: isMounted })} onClick={toggleBurgerMenu} theme={ThemeButton.CLEAR}>
                     <span className={styles.firstBtnItem}></span>
                     <span className={styles.secondBtnItem}></span>
                 </Button>
             )}
-            {width >= 733 && <LangSwitcher />}
+            {width >= 1024 && <LangSwitcher />}
         </header>
     );
 }
 
-export default Header;
+export default memo(Header);
