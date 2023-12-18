@@ -30,19 +30,24 @@ const LangSwitcher: NextPage<LangSwitcherProps> = () => {
     }
     return (
         <section className={styles.langSwitcher}>
-            <Button
-                className={styles.btn}
-                onClick={() => changeLangHandler('en')}
-                theme={ThemeButton.CLEAR}
-            >
-                <Image src={En} height={20} width={20} alt='icon' />
-            </Button>
-            <Button
-                onClick={() => changeLangHandler('de')}
-                theme={ThemeButton.CLEAR}
-            >
-                <Image src={De} height={20} width={20} alt='icon' />
-            </Button>
+            {
+                router.locale === "en"
+                    ? <Button
+                        onClick={() => changeLangHandler('de')}
+                        theme={ThemeButton.CLEAR}
+                    >
+                        <Image src={De} height={20} width={20} alt='icon' />
+                    </Button>
+                    : <Button
+                        className={styles.btn}
+                        onClick={() => changeLangHandler('en')}
+                        theme={ThemeButton.CLEAR}
+                    >
+                        <Image src={En} height={20} width={20} alt='icon' />
+                    </Button>
+            }
+
+
         </section>
     );
 }

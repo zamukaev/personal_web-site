@@ -1,8 +1,8 @@
 .langSwitcher{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .btn{
-        margin-right: 10px;
+    @media (hover:hover) {
+         &:hover{
+            transform: scale(1.1);
+        }
     }
+   
 }
